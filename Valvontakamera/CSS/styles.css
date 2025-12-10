@@ -1,0 +1,230 @@
+html, body
+{
+    height: 100%;
+	width: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+	
+}
+
+#PageWrapper
+{	
+	background-color: black; /* Sivun väri: musta, tekstin väri: valkoinen, pituus ja leveys koko sivulle */
+	color: white; 
+    width: 100%;
+    background-image: url(../IMG/.png);
+}
+
+#HeaderWrapper
+{
+    /* Korkeus 200px, koko cover, keskelle, kuva, taustaväri sininen, sijainti relative */
+    height: 200px;
+    background-size:cover;
+    background-position:top;
+	background-image: url(../IMG/.png);
+	background-color: black;
+    position:relative;
+   
+}
+ 
+#ContentWrapper /* Tehdään sivusta flex box tyyppinen display: flex; */
+{
+    
+    display: flex;
+    align-items: flex-start;
+}
+
+#Sidebar
+{
+    /* Leveys 400px  ja margin 10px. sijainti vasen*/
+    width: 400px;
+    margin: 20px;
+    
+}
+
+#SideBarRight
+{ /* Video embedin sijainti, ja elementin koko */
+	background-position: left center;
+	margin-right: 20px;
+	width: 50%;
+}
+
+/* Video embedin koko */
+.embed
+{
+	width: 280px;
+	height: 240px;
+	padding: 5px;
+}
+
+#DevTeam
+{
+    background-color: white; /* Tekijä laatikon väri */
+    padding: 20px;
+    margin-bottom: 20px;
+	color: black;	/* Tekstin väri: Musta */
+}
+
+.takaisin 
+{
+	color: #42AB71;
+	text-shadow: 2px 2px black;
+}
+
+#ImageOne
+{		
+	background-image: url(../IMG/Croco.png); /* Asettaa kuvan, hakee sen kohteesta: */
+	background-position: Center;  /* Kuva tulee keskelle */
+	background-size: 300px 300px; /* Kuvan mittasuhteet leveys, korkeus */
+	background-repeat: no-repeat; /* Kuva ei toistu */
+	height: 200px; 
+	width: 100%; /* Kuvalle annetun ns. laatikon leveys */
+	 
+    
+}
+
+#ImageTwo
+{
+	background-image: url(../IMG/plants.png);
+	background-position: Center;
+	background-size: 300px 300px; 	
+	background-repeat: no-repeat;
+	height: 200px; 
+	
+	
+}
+
+#ImageThree
+{
+	background-image: url(../IMG/croco.png);
+	background-position: Center;
+	background-size: 400px 400px; 
+	background-repeat: no-repeat;
+	height: 200px; 
+	
+}
+
+#Article
+{
+    /* Määritetään sivun tekstiosiolle margin 20px */
+    margin: 20px;
+	width: 100%;   
+}
+
+
+
+
+#ImageFour
+{		
+	background-image: url(../IMG/water.png);
+	background-position: Center;
+	background-size: 400px 400px; 
+	background-repeat: no-repeat;
+	height: 200px; 
+}
+
+
+#ImageFive
+{	
+	background-image: url(../IMG/.png);
+	background-position: Center;
+	background-size: 200px 200px; 
+	background-repeat: no-repeat;
+	height: 200px; 
+}
+
+
+
+#ImageSix
+{	
+	background-image: url(../IMG/.png);
+	background-position: Center;
+	background-size: 200px 200px; 
+	background-repeat: no-repeat;
+	height: 200px; 
+}
+
+/*
+#ImageFour, #ImageFive, #ImageSix {
+display: inline-block;
+width: 20%;
+}
+*/
+
+
+#mvideo { display: none; }
+
+
+
+@media screen and (min-width: 250px) and (max-width: 750px) 
+{ /* Sisälle mobiili ja tabletti sivun elementit */
+#ContentWrapper
+{
+	display: block;  /* Vaihdetaan flex sivu block muotoon */
+	width: 100%;
+	
+}
+
+#HeaderWrapper /* Bannerin korkeus */
+{
+		
+	height: 50px;
+}
+
+#Article /* Tekstin leveys ja otetaan irti reunasta */
+{
+	width: 70%;
+	margin: 3px auto;
+	padding: 5px;
+}
+
+#Sidebar /* Kuva asetelman leveys */
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;		
+}
+
+.embed  /* Embed videolle oma elementti. Säädetään leveyttä, otetaan paddingillä irti reunoista */
+{
+
+	
+	width: 95%;
+	height: auto;
+	margin: 0;
+	padding: 5px;
+}
+
+#SideBarRight { display: none; } /* Piilotetaan mobiilin�kym�st� pc n�kym�n video */
+
+
+#mvideo 
+{
+	display: block;
+        padding: 30px;
+}
+
+
+.text  /* Kuvien teksteille oma elementti. siirretään tekstiä lähemmäs kuvan keskiosaa */
+{
+		padding: 30px;  
+}
+
+/*
+#ImageFour, #ImageFive, #ImageSix 
+{
+display: block;
+width: 100%;
+}
+
+
+#ImageFour { height: 50px; } /* Pienennet��n ensimm�ist� portaalikuvaa hieman, ett� saadaan tyhj�� tilaa pois */
+*/
+
+
+
+
+}
+
+
+	

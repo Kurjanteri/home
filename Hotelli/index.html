@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html lang="fi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Hotelli MN</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- määrittää sivun leveyden hyödyntämään viewportin leveyttä -->
+        <link rel="stylesheet" href="CSS/styles.css"> <!-- Linkataan CSS tiedostoon -->
+    </head>
+    <body>
+        <div id="PageWrapper"> <!-- Kaikki elementit tulee PageWrapperin sisälle -->
+            <div id="HeaderWrapper"> <!-- Headerin sisälle laitettiin kuva -->
+            </div>
+			<div id="ContentWrapper">
+                <div id ="Sidebar"> <!-- SideBarin sisälle tulee tekijä, kuvat -->
+                    <div id="DevTeam">
+                        <h1>Creator:</h1>
+		  	<p> Mikko Nurminen </p>
+                        <p> Student </p>
+
+						<h1> <a class = "takaisin" href="https://portfolio.gamelab.fi/mikko.nurminen/"> Homepage / Go back </a> </h1>
+
+                                            </div>
+
+
+						<div id = "mvideo" >
+				<h3>Gameplay video </h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/SDGOpI1bPsw" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+	
+
+						
+						<!-- Kuvat omassa osiossa SideBar elementin sisällä -->
+						<div id="ImageOne">
+                        
+                        <p class = "text" > Towel </p>                            
+						</div>
+						
+						<div id="ImageTwo">						
+						<p class = "text" > Hallway </p>
+						</div>
+						
+						<div id="ImageThree">				
+						<p class = "text" > Wet Floor </p>
+						</div>
+                </div>
+					<div id="Article"> <!-- Käytetään teksti elementtinä -->
+					
+                    <h1>Hotelli</h1>
+                    <h2>Description</h2>
+                  
+                      
+                     <p> First person game where you deliver towels to customers as fast as possible while keeping the towels clean. 
+			<br>  
+		     </p>
+                    
+                    <h3> Art and Music </h3>
+			<p> 
+			Art and texturing for objects/models made in Krita (open-source graphics editor).
+			</p>
+
+		<h3> Creation process / Context based issues and solutions </h3>
+			<p>
+6.9
+Starting a GDD, modeling a chandelier and a lamp for it in 3ds Max, creating UV maps for chandelier and lamp, testing if the UV maps work with added texture / color in Unity.
+<br> <br>
+13.9
+Movement and camera script, character model without a head in 3ds Max. Did not know how raycasts work so setting up a logic to allow jumping only when the raycast gives true took a while. Solution: debug logged raycast and figured it works like a boolean and fixed the issue. 
+First time setting up a first person camera that follows camera movements and had some issues when trying to clamp rotations. Solution: Unity documents for Mathf.Clamp and some basic tutorials for fps camera.
+<br> <br>
+20.9
+Tried to code an functional elevator. Issue: Character constantly dropping when going downwards on a platform. Easy solution had an effect on the playermodel so i tried to make the elevator function in another way. Solution: Yet to be found and concluded.
+<br> <br>
+27.9
+Made a item pickup script and fixed raycast detection for jumping by adding some offset to the origin. Also added a circle crosshair. Issue: How to change the speed at which an object/item is moving at when picked up and how to prevent it from spinning rapidly in the air. Solution: Set a lerp and lerping speed and also disabled and enabled rigigbody gravity. 
+<br> <br>
+Compromise. Turn elevator into a "personal lift" so that it moves upwards and optionally makes a motor sound.
+<br> <br>
+11.10
+Made scripts for detecting collisions, spawning objects and destroying objects. These are used for the basic towel delivery mechanic where inserting and dropping a towel through a hole in a door increases points. When a towel is dropped it is destroyed and a new one is spawned. Issue: Forgot how to easily destroy objects that are spawned and no longer needed. Solution: Made a despawner script that is attached to a empty game object with a box collider set to trigger that destroys objects it collides with. Created a UI points/cash counter for the towel mechanic.
+<br> <br>
+Compromise 2. Make elevator move automatically upwards and player has to jump off or the elevator rises up to the attic. From the attic player can jump back to the main lobby.   
+<br> <br>
+18.10
+Textured playable character in Krita with a tie and undershit with some small details to make the clothes look slightly more realistic. Also modeled and textured a door with a hole in the bottom section for towel delivery. Made a script for a lid in the door that slides up and down with animation. Issue: How to trigger animations. Solution: Looked at older projects to refresh memory.
+<br> <br>
+31.10
+Tried to create a black and white filter using Shader Graphs with URP and HDRP. Issue: material issues where the material was not drawn and defaulted to pink. Solution: Installed post processing and used post-process volume and post-process layer.
+<br> <br>
+1.11
+Modeling: front door, wet floor sign. Added point light for wet floor sign and light for a priorly made ceiling lamp. Made an attic with a hole on the floor. Made an script that sets the attic floor box collider to trigger when colliding with a another collider that is placed on top of the hole.
+<br> <br>
+8.11
+Changed from built in render pipeline to URP. Issue: Project crashed on startup. Solution: Discarded changes on github and reboot. Redid black and white filter with URP volume and different modifiers, added bloom to light sources and modeled a lamp in 3ds Max.
+<br> <br>
+20.11
+Wrote a script for light sources to flicker by affecting the intensity value with a random range.
+<br> <br>
+22.11
+Idea: Customer or in this case door requesting delivery will be shown with a bright lamp above the door. Modeled a wall with holes for doors and a hole above the door for a lamp. Tried to use area light to use as a lamp to light the hole but it did not work as intented. Used a emissive material instead and then spent time trying to figure out how to change the color value for the emssion. Instead figured out how to enable and disable emission from script.
+<br> <br>
+23.11
+Tried to make door lamp (emissivive material) system work with several logic issues. Managed to trigger different lamps from an array randomly to indicate which door to deliver a towel to. Box collider set to trigger turned the lamps off and set all bool array elements to false. Ended up using a switch case that uses the random.Range index to select the different lamps to turn them on and off. Tried to use a bool array with the switch case that takes the index from the random range and assigns it to the lamp that is turned on. Then two other bool array elements are turned to false. Trying to explain the logic and thinking process: If the switch case picks for example 0 then a bool array uses the index. When set to true two other elements in the array are turned to false. Then in another script i try to use the bool array number to determine where towels can be delivered for points.
+Issue: Accessing the bool array from another script to assign points from the correct door with a lamp turned on. 3 bool array elements. 0 is set to true, 1 and 2 are set to false. Still when 0 is seen as true in console debug and inspector points are still received from wrong doors. Works inconsistently and dirrerent solutions for checking true and false states did not solve the problem. Solution: Found in 4.12
+<br> <br>
+27.11
+Changed switch case activation from collision check to timer. When 5 seconds have passed the switch case is activated once. Issue: Had some issues with getting an instance invoked. Solution: used a coroutine. Now Hitting a OnTriggerEnter with a towel object starts a coroutine that resets the lamps with a 5 second delay.
+Added a text object and placed it in front of the player character so when looking down it says "DELIVER TO: 0" and the zero is replaced by the index from switch case system. Created a simple pause menu/screen with  resume, settings and quit buttons. Then watched a video how to make a infinitely scrolling bar for the buttons. For extra flare made a script that moves the bar sideways. Issue: Bar moves sideways but when the transform reaches a high enough minus value it resets which causes the motion to not be as smooth as it should.
+<br> <br>
+28.11 Trying to fix pause menu and door system.
+<br> <br>
+29.11
+Changed elevator script so that it adds force to the platform's rigidbody to move it upwards instead of affecting the transform directly. Issue: moving the platform causes the player to drop rapidly. Solution: add force to platform's rigidbody to move it upwards.
+Circle shaped volume slider, added an logo above the sliding menu to indicate the scroll function and an cursor logo inside it. Settings menu: volume slider and fullscreen toggle. Tried to create a dropdown for resolutions but wanted to have the dropdown orientation sideways. By default this was not possible so the entire dropdown was discarded.
+<br> <br>
+4.12
+Solved doorlamp and point counting system issues by putting the float that is used for points into the script that controlls the doorlamp system and made changes to the switch case so that it disables all the other door game objects that were not selected. Script that handless adding the points is attached to every door with a point counting object that is then disabled accordingly by the aforementioned switch case system.
+<br> <br>
+8.1
+Modeled the customer floor back wall and window for tossing out towels and created a system where cash is lost accordingly to the towels condition as in good (-5), decent (-2,5), bad (-1).
+Watched Tutorials on how to create wet looking surfaces and ended up following a shader graph tutorial and created the required normal maps and other textures myself with Krita. The result was not as good as in the tutorial but looks pretty good regardless. Created a system where the floor material is set to wet if lamps 1,3 or 5 is selected and the towel condition is reduced if dropped on the floor.
+<br> <br>
+9.1
+Modeled, UVW wrapped and textured: the room/space before customer doors and the elevator.
+Created animations for elevator doors and a wall that blocks the hole left in the wall for the elavator after it has reached the 1st floor to prevent player from jumping on top of the elevator when it has gone down.
+Made changes to scripts to use more loops to reduce redundant scructures in switch case system and for checking which bool was set to true in the door system.
+<br> <br>
+10.1
+Changed rigidbody values for elevator so it moves smootly and added constraints as a fool proof to prevent it from moving up above the set limit. 			         
+<br> <br>
+16.1
+Created stairs with ProBuilder and tried to solve a problem where the character jumped upwards when moving on slopes.
+Solution was to apply downward force to player when on top of the stairs. Made changes to elevator so it opens the doors when going back to the base floor.
+Fixed UI to scale with different resolutions by chancing anchoring points. Created outerior walls for the hotel building.
+<br> <br>
+23.1
+More stairs and fixed walls that had window holes that were covered by stairs. Created walls that required specific shapes in 3ds Max.
+Tried to create curved stairs for a corner but due to using a invisible layer on top of the stairs to move on top of them i had to make a compromise and use a more normal angled layout with a small middle piece in the corner to connect two stairs. 
+<br> <br>
+30.1
+Changed order text position back to the visible HUD that has other elements like cash and timer.
+Finetuned the player collider size to prevent too much clipping into walls. 
+Made the game pause when timer hits zero and added a reset button into pause menu for resetting the timer and delivery system.
+ Made a test build and fixed very minor errors caused by unused namespaces. Recorded and edited a short gameplay video to showcase the main systems within the game.
+<br> <br>
+13.2
+Added position reset to the reset button and tried to also reset the rotation but there were issues with saving the default rotation and then setting the player back to that saved rotation.
+			    			   
+ 			    			  </p>
+                    
+                    	
+					<p>
+
+					      </p>
+					
+					
+					
+					<p class = "text" >  </p>
+
+					<div id="ImageFour">				
+						</div>
+					<div id="ImageFive">
+						</div>				
+					<div id="ImageSix">				
+						</div>
+					
+
+                   			
+					<p>  
+					 </p> 
+					<p>  </p>
+
+				</div> <!-- Article:n lopetus -->
+				
+				<div id = "SideBarRight" >
+				<h3>Gameplay video </h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/SDGOpI1bPsw" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+            </div>
+            
+        </div>
+    
+	</body>
+</html>

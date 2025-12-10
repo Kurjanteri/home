@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="fi"> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<head>
+        <title>Portfolio MN</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- määrittää sivun leveyden hyödyntämään viewportin leveyttä -->
+        <link rel="stylesheet" href="portfolio/CSS/styles.css"> <!-- Linkataan CSS tiedostoon -->
+	
+    </head>
+    <body>
+        <div id = "PageWrapper"> <!-- Kaikki elementit tulee PageWrapperin sisälle -->
+			<div id = "ContentWrapper"> <!-- Mahdollisia flex box säätöjä varten -->
+				
+					<div id = "Header" title = "banner_image" > <!-- Tänne nimi ja ehkä banner kuva -->
+					<h1> Mikko Nurminen </h1>
+ 				    <p> Student, amateur IT support, videogame enjoyer and music collector </p>
+					</div>
+					
+						
+												
+								
+					<ul> 		<!-- navigaatio palkki -->
+													
+						<li> <a href="portfolio/PDF/CV.html" title = "Resume_Page" alt = "Resume_Page"> Resume Page</a> </li>
+							
+								<!-- Dropdown valikko -->
+							<div class="dropdown">
+								  <a class="projects"> Projects ☰ </a> 
+									<div class="dropdown-content">
+										<a href="https://portfolio.gamelab.fi/mikko.nurminen/2D/" title = "Ros Viridis" alt = "2D-Tasohyppely">2D-Tasohyppely / Ros Viridis</a>
+ 									    <a href="https://portfolio.gamelab.fi/mikko.nurminen/Hotelli/" title = "Hotelli" alt = "Hotelli">Hotelli</a>
+  									    <a href="https://portfolio.gamelab.fi/mikko.nurminen/Lukko/" title = "Lukko" alt = "Lukko">Lukko</a>
+   									   <a href="https://portfolio.gamelab.fi/mikko.nurminen/Sekalaiset/" title = "Sekalaiset" alt = "Sekalaiset">Sekalaiset</a>
+										<a href="https://portfolio.gamelab.fi/mikko.nurminen/tehtava6/" title = "LowPolyProject" alt = "LowPolyProject">Tehtävä 6 / Low Poly rocks and trees</a>
+ 									<a href="https://portfolio.gamelab.fi/mikko.nurminen/Valvontakamera/" title = "Valvontakamera" alt = "Valvontakamera"> Valvontakamera </a>
+										<a href="https://drive.google.com/file/d/12MUjUzDSrGYGe36pW1XhRo2-2VhzyL5u/view?usp=drive_link" title = "Resume Link" alt = "Resume Link"> Resume Link</a>
+										
+									</div>
+							</div>	
+					</ul>
+							
+							<!-- Mobiilisivun valikot  -->
+						<div id = "Mobile">
+							
+							<div class="dropdown">
+ 						    
+								<div class="dropdown-content" id="myDropDown" >
+								  <a href="https://portfolio.gamelab.fi/mikko.nurminen/2D/" title = "Ros Viridis" alt = "2D-Tasohyppely">2D-Tasohyppely</a>
+ 								   <a href="https://portfolio.gamelab.fi/mikko.nurminen/Hotelli/" title = "Hotelli" alt = "Hotelli">Hotelli</a>
+  								  <a href="https://portfolio.gamelab.fi/mikko.nurminen/Lukko/" title = "Lukko" alt = "Lukko">Lukko</a>
+   								 <a href="https://portfolio.gamelab.fi/mikko.nurminen/Sekalaiset/" title = "Sekalaiset" alt = "Sekalaiset">Sekalaiset</a> 
+								  <a href="https://portfolio.gamelab.fi/mikko.nurminen/tehtava6/">Tehtävä 6 / Low Poly place</a>
+ 								 <a href="https://portfolio.gamelab.fi/mikko.nurminen/Valvontakamera/" title = "Valvontakamera" alt = "Valvontakamera"> Valvontakamera </a>
+								  <a href="https://drive.google.com/file/d/1zwYDwytCccJzA5fVh2QAM29Zu7nnqDVO/view?usp=sharing">Resume Link</a>
+								  <a href="portfolio/PDF/CV.html" title = "Resume_Page" alt = "Resume_Page"> Resume Page</a>
+								 
+								</div>
+								 <!-- Saadaan nappi alimmaiseksi. ÄLÄ LAITA SULKUA <a perään -->
+ 							    <a <button class="dropbtn" id="myButton" onclick="myFunction2()"> ☰ </button> </a>
+							</div>
+						</div>
+						      
+ 						       
+  						      
+							<!-- Javascriptiä tekstipainikkeille. paina nappia niin elementti tulee näkyviin. -->	
+							<script>
+							function myFunction2() {
+								 var x = document.getElementById("myDropDown");
+ 								  var y = document.getElementById("myButton");
+   							    
+								  if (x.style.display === "block") {
+									x.style.display = "none";
+ 								    y.style.backgroundColor = "";
+ 								     
+								  } else {
+									x.style.display = "block";
+ 								    y.style.backgroundColor = "#42AB71";
+								  }
+								}
+							
+								
+							</script>
+							
+						<div id = "middle">
+							<p class="bolds" id="showcase"  class = "title" > Showcase of projects </p> <!-- ÄLÄ LAITA SULKUA <p perään. -->
+							<!-- Video embed. Erillinen class elementti "video" jolla määritetään videon kokoa.  -->
+							<iframe class = "video" src = "https://www.youtube.com/embed/d5SW9z42jB4" frameborder = "0" allowfullscreen> </iframe> <!-- videolaatikko -->
+								
+							 
+								
+								<!-- Teksti linkit -->
+								<div id ="MobileLinks">
+									<h1>  <a  class = "txtL" href = "https://www.linkedin.com/in/mikko-nurminen-57266b253/"> LINKEDIN // </a> 
+									      <a class = "txtL" href = "mailto: eminu004@edu.xamk.fi"> EMAIL </a>
+										  
+									</h1>
+								</div>
+
+						
+							 	<p class = "bolds" > Some images: </p>
+								<p> Three finger hand of a work in progress 3D model </p>
+								
+								<!-- Kuvat ja alt teksti -->
+								<img class = "project_images" src = "portfolio/IMG/Hand.png" title = "hand_image" alt = "hand_image"> 
+								<br>
+								<p> Here are some trees and rocks placed on a desert </p>
+								<img class = "project_images" src = "portfolio/IMG/kuva5.png" title = "Low_poly_place" alt = "desert_image">
+								<p> C++ switch case menu with prime number checker, random letter printer with timer, kilometers to miles converter, <br> text checker for dots, words and spaces, 2D array etc. </p>
+								<img class = "project_images" src = "portfolio/IMG/CMD.png" title = "CMD" alt = "CMD">
+
+								<!-- Sijoitetaan video mobiilisivulla alas. piilotettiin toinen video -->
+							<iframe  class ="mobilevideo" src = "https://www.youtube.com/embed/d5SW9z42jB4" frameborder = "0" allowfullscreen> </iframe> <!-- videolaatikko -->
+
+								<p> Short grass animation </p>	
+								<img class = "project_images" src = "portfolio/IMG/grass.gif" title = "grass_gif" alt = "grass_gif">
+									
+													</div>
+								
+								<!-- Teksti linkit -->
+							<div id = "PCLinks">
+								<h1>  <a  class = "txtL" href = "https://www.linkedin.com/in/mikko-nurminen-57266b253/"> LINKEDIN // </a> 
+								<a class = "txtL" href = "mailto: eminu004@edu.xamk.fi"> EMAIL </a>
+								</h1>
+								<br>
+							</div>
+				</div>
+			</div>
+		
+	</body>
+</html>

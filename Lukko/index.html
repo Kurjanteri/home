@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="fi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Lukko MN</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- määrittää sivun leveyden hyödyntämään viewportin leveyttä -->
+        <link rel="stylesheet" href="CSS/styles.css"> <!-- Linkataan CSS tiedostoon -->
+    </head>
+    <body>
+        <div id="PageWrapper"> <!-- Kaikki elementit tulee PageWrapperin sisälle -->
+            <div id="HeaderWrapper"> <!-- Headerin sisälle laitettiin kuva -->
+            </div>
+			<div id="ContentWrapper">
+                <div id ="Sidebar"> <!-- SideBarin sisälle tulee tekijä, kuvat -->
+                    <div id="DevTeam">
+                        <h1>Creator:</h1>
+		  	<p> Mikko Nurminen </p>
+                        <p> Student </p>
+
+						<h1> <a class = "takaisin" href="https://portfolio.gamelab.fi/mikko.nurminen/"> Homepage / Go back </a> </h1>
+
+                                            </div>
+
+
+						<div id = "mvideo" >
+				<h3>Gameplay video </h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/7DgPxijEaPM" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+	
+
+						
+						<!-- Kuvat omassa osiossa SideBar elementin sisällä -->
+						<div id="ImageOne">
+                        
+                        <p class = "text" > Placeholder </p>                            
+						</div>
+						
+						<div id="ImageTwo">						
+						<p class = "text" > Placeholder </p>
+						</div>
+						
+						<div id="ImageThree">				
+						<p class = "text" > Placeholder </p>
+						</div>
+                </div>
+					<div id="Article"> <!-- Käytetään teksti elementtinä -->
+					
+                    <h1>Lukko</h1>
+                    <h2>Description</h2>
+                  
+                      
+                     <p> Lockpicking game with extra steps.  
+			<br>  
+		     </p>
+                    
+                    <h3> Art and Music </h3>
+			<p> 
+			Waiting for creation.
+			</p>
+
+		<h3> Creation process / Context based issues and solutions </h3>
+			<p>
+ 19.2.24
+Started project by creating a spring system and tried different ways to move the lockpick away from the spring. 
+Made object follow mouse movement/cursor position. Issue: object started to vibrare/shake when being close to the cursor. Solution: Increased drag in rigidbody to 20.
+<br> <br>
+20.2.24 
+Added cubes to act as springs and tried to create a script that simulates springs. Tried different approaches for pushing the lockpick away from the spring like applying force directly to the spring so that the spring pushes the lockpick away. Due to the way the lockpick is moved with the mouse it did not work so i had to change it so that force is applied to the lockpicks rigidbody when it collides with the spring and the spring is moved to a defined position. 
+Implemented a simple system that slightly randomizes the spring locations so that they are slightly lower or higher. 
+Tried to use a slider and gradient technique to change the spring color when it reaches the max position and then reset the color when the spring bounces back. Because of weird collision dedection issues the value that is used for the color gradient went over the defined range and the color would not change back. Instead opted to change the color manually in code.
+Tried adding spring joints to the spring objects. Now the objects move back to their original position when pushed upwards and i kept applying force when the max position is reached to bounce the lockpick away from the spring so it can reset. Added a random range for joint Min Distance so that the springs can be at different positions without getting pulled to the same position.
+<br> <br>
+21.2.24
+Disable spring position randomization to advance to other aspects. Might be re-implemented at a later date when a solution is found that always sets the spring back to it's starting position after being pushed.
+<br> <br>
+5.3.24
+Created three different materials so that every spring does not flash red when only one is pushed too far upwards. Wrote a SweetSpot script that creates a  sweetspot for the spring by using Random.Range and triggers. When a spring is on the sweetspot it turns green and is otherwise grey. Issue: Spring does not always change color when it enters the sweepspot trigger from the front but changes color when entering from the backside of the trigger. Solution: ??
+Springs can be locked in place when on the sweetspot. Randomized lock in order still requires work. 
+<br> <br>
+4.9.24
+Added a check in script for when every spring is locked in place to display a UI-text with "Unlocked!". Changed spring locking order to use a list instead of a bool array and made changes to the randomization so that I can reset the springs if a wrong one is selected. 
+<br> <br>
+11.9.24
+Made springs in 3ds Max with "dynamic objects" but the functions applied to the meshes could not be exported. Searched for a free asset in Unity store and found a tool called "Deform". It included easy to use deform tools and one called "Cylindrify" worked well enough to simulate the spring being pushed together regardless of the overall size of the mesh being altered at the same time. Made changes to scripts to get refences from the scripts included in the tool to change values and tried different Mathf. functions to gradually affect the values when the spring is being pushed upwards so that the shrinking or collapsing would happen gradually. Modelled a simple lockpick.
+<br> <br>
+18.9.24
+Added suitable metallic materials from previous projects to springs and to the lockpick. Changed main camera distance so that it's closer in the game view. Removed skybox and general lighting so that in the game view there's only a small lit area that is visible. This is to isolate the view and to sort of simulate a person looking into a lock with a flashlight. Made a light flickering system where the light turns off and flickers 1 to 3 times before turning back on again with a small chance that the process repeats. Light also moves around slowly by using rotations.
+Issue: light intensity not changing when the flickering function happens. Solution: Reference issue with the light component that Unity did not show. Changed light to a public object and dragged the object to it's field.
+<br> <br>
+25.9.24 
+Added some UI buttons to have a main menu with start and quit. Watched a tutorial on Cinemachine virtual cameras and made a simple camera transition from a main menu view to the ingame view. Issue: Attempted to use custom curves for the motion but there was an issue that the motion happens but the transition into the camera happens suddenly. Solution: Used built-in styles. "Ease In" for menu camera to ingame camera for a smooth transition and "Hard Out" for ingame to menu so that the menu opens quickly. Added scripts to the UI buttons to start and quit the game. Remade the lockpick but due to a topology issue the material that is applied on the lockpick gets slightly stretched. Tried to unify the topology on the entire model in 3ds max with a automatic tool but all the detail from the material was smoothed out on the model. Made changes to scripts so that I can use a single material and have multiple instances of it to change the color on different objects. Added a "Click" text that is displayed when a spring locks into place using the text components alpha value and then fades out shortly after. Made a hollowed cylinder in 3ds Max to work as the inside walls of a lock.
+<br> <br>
+9.10.24
+Color change for menu buttons for clear feedback when the button is selected. Changed lockpick rotation to be handle towards the camera in a upright position to better suit the tube like or cylindric lock innards. Imported PrimeTween tweening library to the project and tested different shake options to simulate a shaking hand. One option I tried was chaining two shakes with different values but like the name suggests it executed the shakes one after another so it looked too mechanical. A solution was to use a "ShakeLocalRotation" and to prevent the shaking from looking the same every time I randomised the values. Used the tween library for a fade in when entering from menu to the game. Issue: Tried to do the same in reverse when pausing the game but because the fade is affected by timescale it stops. Solution: Removed timescale stopping and instead prevented lockpick from moving when the menu is active. Added a small delay so that the lockpick can't be moved when the fade in is happening. This is because the lockpick follows mouse position and could possibly be pulled to a unwanted position even before the game starts.
+<br> <br>
+16.10.24
+Added a check that uses the timer to prevent the light from turning off within the first 5 seconds. Issue: timer starts from 00:00:02 regardless of being set to 0 in Awake. Solution: function that turns the timer to ON was called in void start and then the timer was stopped after the main menu UI was detected to be active (used for pause). When springs are locked in place: Start button is hidden and reset button is placed to where start button was. Changed metal parts that are placed before the actual springs from default cubes into cylinders. Added sign images into quit, reset and start buttons from a Finnish sign sellers website knowing that this project won't be for commercial use. Added shakes to menu buttons when they are hovered. 
+<br> <br>
+6.11.24
+Added shaking to springs when on sweetspot. Used sounds from other projects and made a simple AudioManager for playing audio clips. Made an array to play four different spring like sounds when a spring is pushed too far and it pushes the lockpick back. When a spring is locked in place a sound is played. When buttons on the menu are hovered a tapping sound is played. Added a time limit of 60 seconds before the game is reset. A "Game Over" text is displayed at 60 seconds and at 55 seconds the timer text will start blinking. 
+<br> <br>
+13.11.24
+Made changes to code so that the player can't move the lockpick when the time runs out and game is ending. This was to prevent player from moving when the timer stops and before the game was reset. Added a fade in that starts when time runs out. Fetched an royalty-free gun shot audioclip from Pixabay and adjusted the volume while monitoring the levels in Reaper. Used a AI generation website called udio for background music and tried to make it loop seamlessly in Reaper. 
+<br> <br>
+20.1.25
+Tried to solve an issue with the spring color not always changing when locked in place. The issue does not surface frequently and I could not figure out how to fix it. Made changes to the light turning off randomly. Issue was that every time after the first five seconds had passed the light would turn off after roughly 2 seconds. This was due to a "yield return new WaitForSeconds" with a random range set to 0.5f and 2f. I increased the range to much higher values. Tried to make a test build and because I had installed FMOD into the project for a reason I can't remember the build failed. The solution was to open the FMOD project file and build it to create the missing "banks" files. Recorded a gameplay preview and added it to the project page.
+<br><br>
+27.1.25
+Hid the mouse cursor during gameplay and made a new build with the change.
+<br><br>
+
+ 		    			  </p>
+                    
+                    	
+					<p>
+
+					      </p>
+					
+					
+					
+					<p class = "text" >  </p>
+
+					<div id="ImageFour">				
+						</div>
+					<div id="ImageFive">
+						</div>				
+					<div id="ImageSix">				
+						</div>
+					
+
+                   			
+					<p>  
+					 </p> 
+					<p>  </p>
+
+				</div> <!-- Article:n lopetus -->
+				
+				<div id = "SideBarRight" >
+				<h3>Gameplay video </h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/7DgPxijEaPM" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+            </div>
+            
+        </div>
+    
+	</body>
+</html>

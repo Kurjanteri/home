@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="fi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>tehtava6 MN</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- määrittää sivun leveyden hyödyntämään viewportin leveyttä -->
+        <link rel="stylesheet" href="CSS/styles.css"> <!-- Linkataan CSS tiedostoon -->
+    </head>
+    <body>
+        <div id="PageWrapper"> <!-- Kaikki elementit tulee PageWrapperin sisälle -->
+            <div id="HeaderWrapper"> <!-- Headerin sisälle laitettiin kuva -->
+            </div>
+			<div id="ContentWrapper">
+                <div id ="Sidebar"> <!-- SideBarin sisälle tulee tekijä, kuvat -->
+                    <div id="DevTeam">
+                        <h1>Tekijä:</h1>
+
+		<h1> <a class = "takaisin" href="https://portfolio.gamelab.fi/mikko.nurminen/"> Homepage / Go back  </a> </h1>
+                       
+			 <p> <br> Mikko Nurminen </p>
+                        <p> Opiskelija </p>
+                    </div>
+						<!-- Kuvat omassa osiossa SideBar elementin sisällä -->
+						<div id="ImageOne">
+                        
+                        <p class = "text" > KUVA1 </p>                            
+						</div>
+						
+						<div id="ImageTwo">						
+						<p class = "text" > KUVA2 </p>
+						</div>
+						
+						<div id="ImageThree">				
+						<p class = "text" > KUVA3 </p>
+						</div>
+                </div>
+					<div id="Article"> <!-- Käytetään teksti elementtinä -->
+					
+                    <h1>3DS Max, Unity</h1>
+                    <h2>Projektin kuvaus</h2>
+                  
+                      
+                     <p> Projektina oli 3D-mallien ja maaston luonti 3ds Maxilla ja exporttaus Unityyn. Tarkoituksena oli luoda Low Poly ympäristö, missä on kiviä ja puita. Projekti toteutettiin annettujen ohjeiden mukaisesti aikavälillä torstai 15, syyskuuta - perjantai 30, syyskuuta 2022. </p>
+                    <h3>Tehtävän kuvaus</h3>
+                    <p> Luo 3D-mallinnusohjelmalla maastoa ja sijoita siihen kiviä sekä puita. Ota valmiista työstä kuvia eri kulmista ja muodosta siitä neljän kuvan kokoelma yksittäiseksi kuvaksi. Vaihtoehtoisesti projektista voi tehdä lyhyen videon. </p>
+                    
+                    <h3>Ongelmat ja ratkaisut</h3>	
+					<p> Projektin alussa kuvan laittaminen sivun yläosaan tuotti hieman haasteita, kunnes tajusin asettaa sen omaan div elementtiinsä. Testauksessa käytetty kuva oli kooltaan liian suuri, joten siihen piti etsiä komento joka, käytti kuvan keskiosaa. Tämä selvisi background-positionilla. </p>
+                    <p> Youtube videon linkkaus ei aluksi toiminut. Ongelmana oli itse linkki, johon piti lisätä /embed ja linkki muotoon youtube.com/embed/abCdEfG </p>
+                    <p> iframe laatikon asettaminen sivun oikeaan reunaan vaati avun pyytämistä, mutta ohjeet löytyivät w3schools:in sivuilta. Asettelu haluttuun kohtaan vaati "background-position" komentoa.
+					<p> Tästä oppi, miten komennon nimi ei aina täysin vastaa sen kaikkia käyttotarkoituksia. </p>
+					
+					<h3>Näyttökuvat ja valokuvat</h3>
+                    <p>Kuvat on otettu Unityssa Xbox Game Bar:in avulla. Kuva1 suoraan edestä, Kuva2 ylhäältä ja Kuva3 on neljän kuvan kokoelma. </p>                  
+					
+					<h3> LÄHTEET </h3>
+					<p> Youtube videon linkkausohje. 2018. freeCodeCamp. WWW-dokumentti. Saatavissa: https://forum.freecodecamp.orgz<br>/t/youtube-refused-to-connect/245262 </p> 
+					<p> CSS background-position Property. 2022. w3schools. WWW-dokumentti. Saatavissa: https://www.w3schools.com/cssref<br>/pr_background-position.asp </p>
+					</div> 
+				
+				<div id = "SideBarRight" >
+				<h3>Gameplay video projektista</h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/kRH8YeHmLf8" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+            </div>
+            
+        </div>
+    
+	</body>
+</html>

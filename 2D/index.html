@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="fi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>2D-Tasohyppely MN</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- määrittää sivun leveyden hyödyntämään viewportin leveyttä -->
+        <link rel="stylesheet" href="CSS/styles.css"> <!-- Linkataan CSS tiedostoon -->
+    </head>
+    <body>
+        <div id="PageWrapper"> <!-- Kaikki elementit tulee PageWrapperin sisälle -->
+            <div id="HeaderWrapper"> <!-- Headerin sisälle laitettiin kuva -->
+            </div>
+			<div id="ContentWrapper">
+                <div id ="Sidebar"> <!-- SideBarin sisälle tulee tekijä, kuvat -->
+                    <div id="DevTeam">
+                        <h1>Creator:</h1>
+		  	<p> Mikko Nurminen </p>
+                        <p> Student </p>
+
+						<h1> <a class = "takaisin" href="https://portfolio.gamelab.fi/mikko.nurminen/"> Homepage / Go back </a> </h1>
+
+                                            </div>
+
+
+						<div id = "mvideo" >
+				<h3>Gameplay video </h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/SFHOhurybBg" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+	
+
+						
+						<!-- Kuvat omassa osiossa SideBar elementin sisällä -->
+						<div id="ImageOne">
+                        
+                        <p class = "text" > Trap Chest </p>                            
+						</div>
+						
+						<div id="ImageTwo">						
+						<p class = "text" > Character </p>
+						</div>
+						
+						<div id="ImageThree">				
+						<p class = "text" > Portal </p>
+						</div>
+                </div>
+					<div id="Article"> <!-- Käytetään teksti elementtinä -->
+					
+                    <h1>2D-Tasohyppely / Ros Viridis</h1>
+                    <h2>Description</h2>
+                  
+                      
+                     <p> 2D platformer where the object is to complete levels and reach the end. 
+			<br> Brief story: You are given a mission by the elder of your village to traverse through portals to find answers. Your journey ends in obliteration. 
+		     </p>
+                    
+                    <h3> Art and Music </h3>
+			<p> All art made with Krita (free open-source graphics editor for art and animation) using a combination of customised and stock brushes.
+			Music is generated with Riffusion (AI music generator). Sound effects made on jsfxr website.
+			
+			</p>
+
+		<h3> Creation process </h3>
+			<p> I started the project by creating a platform and a player object. Then i proceeded to watch tutorials on how to make the character move. After having the basic movements done i proceeded to creating the first version of the playable character in Krita.
+			I also made platforms, bouncers (jump pads) and an goal flag that i eventually scrapped and replaced with a portal that has layers and each one moves in a different speed or direction.
+			A few tutorials and coding errors later the game had double jump, wall sliding, smoother camera that follows the player, area that resets player back to the start and functioning bouncers. 
+			When implementing the wall slide i created some walls out of the platforms and did a variety of patterns to avoid having every object look the exact same. I did the same thing for platforms and bouncers.
+			To invoke frustration in players and an element of surprise i created an trap chest object that triggers an position resetting box collider. I then later designed a sprite sheet of different sized portals and created a animation out of them to play in quick succession.
+			<br> Redesign of the character happend shortly after to better match the grey and green color scheme of the platforms and other objects. Finer details on the character worked by accident and ended up looking like a cloth that is wrapped around the face. 
+			I simply made a mess with some brushes in Krita and tuned the opacity of the lines. Then put a dark green layer on top and the character was done.
+			<br> Main menu and options menu. Created a new scene and three buttons for start, options and quit. Later on had to create a new scene just for the options menu for it to work with a controller.
+			For ingame i reused the options menu and added a button for returning to main menu and for quitting the game.
+			<br> Volume slider for the options menu uses the Audio Mixer in Unity and to access the master volume with a script it required to first expose it from the editor and then assigning a better name for it in "exposed paremeters".
+			I used the same method for music to lower the pitch when an options menu is active ingame to have this sort of muffled effect. When the options menu is opened ingame it is simply set active in the hierarchy and then set inactive when closed.
+			<br> For all sound effects i used a jsfxr website to create button selection sounds, position reset sounds and a portal explosion sounds. With my perfectionism and lack of skill these took several hours to create.
+			<br> Chancing from a scene to another is done by accessing the number identifier of a scene with script which can be seen from build settins in the Unity editor. This is used for portals that change the level and for UI buttons.
+			<br> HUD consists of a timer and a song playing text that fades out. Both are UI elements and use a custom font. Timer uses a script to count upwards and has minutes, seconds and milliseconds.
+			<br> Song playing text reads the name of the audio file from a audio listener component then fades out by accessing the alpha channel of the text component using a script in GameManager.
+			<br> Created a background for main menu in Krita and a sprite sheet to use for a rain effect. Made the background move by using a raw image components UV rect and accessed it from a script.
+			<br> Designed levels to a playble state where the first level introduces the basic functionalities of moving bouncers, platforms, walls, trap chests and portals. Also made a sign in Krita that says "WRONG WAY" that is featured at the start of both levels.
+			     Created a moving platform for the second level that starts moving when player is on top and resets position when a defined position is reached.
+			     Made a lucky hit bird for second level that sets player's position to the end of the level. It only passes through the level once and is then destroyed.
+			     Created a position resetting area for both levels that sets the player transform to a empty game object that is placed at the start of the level.
+			     Made a large black box for the first level to use as the resetting area. Second level does not have this because it is not set on the ground.
+			     Designed and created a boat for the first level to fill in empty space and to have a reasonable place for a chest.
+			<br> Created a end screen in Krita for the game that clashes in the tone of the game but has a story reason. Has a button for returning back to main menu that uses the build index method mentioned before.
+			<br> Made changes to UI dropdowns in options menu to prevent it from covering other buttons. Changed the font size and size of the dropdown box.
+			<br> Debugged the old Unity input system for a controller by setting one number at a time to opening a menu and then testing what button it is on a controller. 
+			<br> Set a first selected in event system to use a controller in menus and set button navigation to explicit to manually define the navigation. Did both things in editor.
+			<br> Used a AI music generation website called Riffusion to generate music based on text input and then another website called drumbot to crossfade the short music clips to loop seamlessly.
+			         
+			    			   </p>
+                    
+                    <h3>Issues and Solutions </h3>	
+					<p> How to add images to a 2D game and how to make the character move. Solution was to add a canvas and then select a image component that has a spot for image files. Movement required creating a
+				            script and watching plenty of tutorials on youtube. 
+                                            <br> Character is constantly flickering. Issue was that movement script was missing an if statement that fixed an issue with transform scale
+                                            going from -1 to 1 causing the character to flip rapidly. 
+					    <br> Surfaces on a boat object are at an angle that required to change the size of a Overlapcircle that checks if the character is
+					    grounded. This increase in overlapcircle size allowed for the player to jump four times instead of the intended two. Changed the size back and changed the size of character box collider to
+					    make double jumping work again. <br> Trap chest object that actives inactive objects one after another. Solution was to use invoke to time the action and booleans to check if the objects are active or not.
+				            <br> Jumping on top of a trap chest without colliding with the sides and while under the object. Used a Platform Effector 2D and set the surface arc to 1 degree. Surface arc worked completely differently than expected
+						where less degrees allow passing through and more makes you collide with the object.
+					    <br> How to make a UI image (background) move. Image had to be attached to a Raw image component and then use a script to access the UV rect to move the image on X and Y-axis.
+					    <br> Custom font made on https://www.metaflop.com/modulator was not perfectly monospaced meaning evenly spaced causing the timer to flicker. Added mspace=120px to script to force the font into monospace.
+					    <br> Creating a text that reads the name of a audio file from audio source and fades out. Issue was that the text stopped fading out if the game was paused. Wrote into GameManager and used a coroutine to handle the fade out.
+				            <br> Can't stay on top of a moving platform. Setting the players transform temporarely to the platforms transform allowed to stay on top while it's moving.
+					    <br> Bouncer object moved too close to the starting point edge causing frequent physics issues were the player got thrown into the air. Temporary solution was to limit the bouncer movement further from the edge.
+					    <br> Menu navigation did not work as intented. Had to put navigation under a button component to explicit and then setup the routes manually. Up from top goes to bottom and down from bottom goes to top.
+					    <br> No UI element selected when using a controller. Required to setup event system and insert a "first selected" button object.   
+
+					      </p>
+					
+					<h3>Images</h3>
+					
+					<p class = "text" > Portal Explosion consisting of 9 parts. First, third and last shown below. </p>
+
+					<div id="ImageFour">				
+						</div>
+					<div id="ImageFive">
+						</div>				
+					<div id="ImageSix">				
+						</div>
+					
+
+                   			<h3> Sources </h3>
+					<p> Forgsen, S. , Martiros, H. Riffusion. Available: https://www.riffusion.com/ 
+					 </p> 
+					<p> drumbot. Alooper. Available: https://www.drumbot.com/projects/looper/  </p>
+
+				</div> <!-- Article:n lopetus -->
+				
+				<div id = "SideBarRight" >
+				<h3>Gameplay video </h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/SFHOhurybBg" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+            </div>
+            
+        </div>
+    
+	</body>
+</html>

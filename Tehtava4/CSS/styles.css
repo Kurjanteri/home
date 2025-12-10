@@ -1,0 +1,30 @@
+
+/* Asettaa koko sivulle kuvan halko.png, koska kuva sijaitsee kansiossa IMG niin pitää mennä taaksepäin ../ merkillä */
+body { 
+background-image: url(../IMG/halko.png);
+}
+
+
+/* h1 tekstille fontti 16px, siirretään vasemmalle ja oikealle 10px */
+h1 { 
+font-size: 16px;  
+margin-right: 10px;
+margin-left: 10px; 
+
+}
+/* p tekstille .bold tunniste, lihavoidaan fontti ja fontiksi Arial */
+p.bold { 
+font-weight: bold;
+font-family: "Arial";
+}
+/* h2 fontti 10, lihavointi, KÄYTETÄÄN ISOJA KIRJAIMIA */
+h2 { 
+font-size: 10px;
+font-weight: bold;
+text-transform: uppercase;
+}
+/* p tekstille .times tunniste, ja fontiksti Times New Roman */
+p.times {
+font-family: "Times New Roman";
+}
+

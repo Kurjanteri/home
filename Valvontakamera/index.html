@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="fi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Valvontakamera MN</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- määrittää sivun leveyden hyödyntämään viewportin leveyttä -->
+        <link rel="stylesheet" href="CSS/styles.css"> <!-- Linkataan CSS tiedostoon -->
+    </head>
+    <body>
+        <div id="PageWrapper"> <!-- Kaikki elementit tulee PageWrapperin sisälle -->
+            <div id="HeaderWrapper"> <!-- Headerin sisälle laitettiin kuva -->
+            </div>
+			<div id="ContentWrapper">
+                <div id ="Sidebar"> <!-- SideBarin sisälle tulee tekijä, kuvat -->
+                    <div id="DevTeam">
+                        <h1>Creator:</h1>
+		  	<p> Mikko Nurminen </p>
+                        <p> Student </p>
+
+						<h1> <a class = "takaisin" href="https://portfolio.gamelab.fi/mikko.nurminen/"> Homepage / Go back </a> </h1>
+
+                                            </div>
+
+
+						<div id = "mvideo" >
+				<h3>Gameplay video </h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/8Q86jQIfhKs" frameborder="0" allowfullscreen=""></iframe> </p>
+ 			    <p> <iframe class = "embed" src="https://youtube.com/embed/FnjIh6UHtgE" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+	
+
+						
+						<!-- Kuvat omassa osiossa SideBar elementin sisällä -->
+						<div id="ImageOne">
+                        <p class = "text" > Placeholder </p>                            
+						</div>
+						
+						<div id="ImageTwo">						
+						<p class = "text" > Placeholder </p>
+						</div>
+						
+						<div id="ImageThree">				
+						<p class = "text" > Placeholder </p>
+						</div>
+ 					
+ 					    <div id="ImageFour">	
+  					     <p class = "text" > Placeholder </p>			
+						</div>
+                </div>
+					<div id="Article"> <!-- Käytetään teksti elementtinä -->
+					
+                    <h1>Valvontakamera</h1>
+                    <h2>Description</h2>
+                  
+                      
+                     <p> Security is tight around here.  
+			<br>  
+		     </p>
+                    
+                    <h3> Art and Music </h3>
+			<p> 
+			Waiting for creation.
+			</p>
+
+		<h3> Creation process / Context based issues and solutions </h3>
+			<p>
+ 27.1.25 <p></p>
+Project start. Created a portfolio page for the project. Created the Unity project and added Cinemachine to implement a security camera system. Made a player movement script and tested a distance based camera switching system with Cinemachine cameras. 
+<br><br>
+
+3.2.25 <p></p>
+Started making a sword swing and shooting a projectile. Created a simple block in 3ds Max so that it has the correct pivot position at one end of the block instead of the middle. This allows for rotating the block in a swing like motion. Created the sword swing by using a coroutine and a if else statement to change to direction of movement. coroutine handles the rotation change to apply the motion and also has a recoil for the movement to simulate weight of the object while also working as a slight delay.
+<br><br>
+
+10.2.25 <p></p>
+Made a script that destroys the projectile to prevent projectiles from piling up. Modelled a simple gun in 3ds Max to test a recoil and reload mechanic. Made a script that pulls back the top section of the gun to visualise the gun firing. Also made created two firing modes: auto and single. Switching between the mode happens by pressing Q. Added logic for ammo and reloading. If ammo runs out the gun wont fire and the gun can be reloaded by pressing R. Plan is to later implement ammo pickups that allow the reloading when the player has ammo.
+<br><br>
+
+17.2.25 <p></p>
+Added logic to gun script that adds recoil when firing. Recoil uses a random range so that the amount of recoil is not static. The recoil uses a coroutine to apply and reset the recoil. The recoil itself is done by affecting the gun's rotation with Quaternion.Slerp. Ammo pickup system where ammo is picked up into a reserve. If for example the magazine has 28 bullets and there are five in reserve only two will be used when reloading and three will be left in reserve. Started to model an ammo crate in 3ds Max.
+<br> <br>
+
+3.3.25 <p></p>
+Finished modelling the ammo crate and modelled an generic 9mm bullet for the gun to fire and to use as décor. Used the Unity particle system to create a simple muzzle flash by using the default particle (for now), random range color, light and emission burst to get the shape. Added materials to the bullet and ammo crate. Used a render texture to test a pixelated look by rendering the game at a low resolution. The texture is added to the main camera and the texture is added to a raw image on canvas. I wanted to create and test a 6 bit color space so I tried to use a shader graph but could not figure out the calculations. I tried to delegate the work to AI and got pretty good results. It created a Image Effect Shader that seemingly does what I asked for.
+<br><br>
+
+7.3.25 <p></p>
+Started modelling a humanoid character in 3ds Max while using images of crocodiles as reference material to create a crocodile headed humanoid character. The character ended up having three finger hands, two toe feet and a tube like tail. There were some challenges in creating the crocodile head and eyes but the mouth turned out fine for the low level of detail I'm aiming for. Solution for the crocodile eyes came from testing out spline tools and turning on "outline" which created an outline for the elliptical circle. After the character model was done I started doing the rigging and skinning so that I could animate the character in Unity. Because I haven't rigged or skinned any characters in a long time I watched some tutorials on how the systems work. Getting the characters legs to move with the bone rigging caused issues with character warping. I tried to add more edges to the character but the issue came from the envelopes or weights. After trying to fix it manually I checked a video on the topic that suggested to use a weight solver that automatically calculates the weights which worked fine. Now the shapely character's belly warps just a little bit when rotating the legs. Watched multiple videos and tutorials about IK and followed Unity's own tutorial about procedural walking animations using IK and a Animation Rigging package. Tried to make the systems work for my character.
+<br><br>
+
+8.3.25 <p></p>
+Tried to code the IK system for walking but there were plenty of issues most likely caused by the pivots on my character's bones/rig.
+<br><br>
+
+9.3.25 <p></p>
+Opened 3ds Max to try to fix the rig's pivot points so that at least the forward vectors would match. Tried to redo the rig's legs and arms so that the root of the bone would be at the end of the joint. It seemed logical for IK but in the Unity implementation (Animation Rigging package by Unity) that I tried to use it did not work like I was hoping. After the failed experiment I added finger and wrist bones If I decide to use them for holding objects. Also redid the legs and made sure the pivots for the legs would be matching. For whatever reason in the original character the right leg's forward axis is pointing backwards. Continued working on the leg IK. The system uses targets and raycast to align and rotate the feet/foot with the terrain. The targets inherit their position and rotations from the legs. After hours of testing and trying to solve the rotation issues by using an offset or by adding constraints. I decided to add another bone to the tip of the legs and adjusted the pivot so that it matches the default rotations in Unity. The bone is not aligned with the model at all but it works now. In 3ds Max trying to rotate the pivot of a bone also rotates the object even if "Affect pivot only" is turned on.
+<br><br>
+
+10.3.25 <p></p>
+Now that the legs somewhat work I will attempt to animate the character's tail. I added an constraint component for the tail and set the required transforms. Then I wrote the code that moves the target for the tail left and right. There are some issues with moving the target and it getting stuck in place causing stutter but this happens very inconsistently. The point of the rotating is so that the tip is pointing in the direction the tail is moving towards. After many changes to the code the stuttering stopped but the rotation is not smooth. I tried adding a "Multi-Aim Constraint" that is supposed to work like a look at but It could be causing more issues than helping.
+<br><br>
+
+17.3.25 <p></p>
+Kept working on the tail IK movement and rotation. Because the default rotation and pivot for the tail is so unusual coding the rotation was difficult. The first approach was to rotate the tail by 90 degrees with the movement direction but the rotation happened through the forward direction so the tip of the tail was pointing forward when rotating instead of backwards. This caused visible clipping. To fix this the left to right movement had to be reversed and the rotation had to be set to 0 when moving left and when moving right to -180. The left and right movement uses a Sin function and for tracking the endpoints of each direction I use a set of bools and a range check so that the rotation change starts after the end of a direction is reached.
+<br><br>
+
+24.3.25 <p></p>
+So that the character could hold objects in it's hands I redid the bones and edited the envelopes/weights manually. Issue was that bending the fingers affected the entire palm of the hand. Also added some vertices to the joint areas so to help with the bending. Another issue or non-issue noticed by a classmate was that the bone pivots were at the tips of the fingers so that also prompted redoing the bones and doing the adjustments. Started modelling a less blocky gun that the character can hold.
+<br><br>
+
+27.3.25 <p></p>
+Tested the new gun and made changes to the script so that a piston like part on the gun moves up and down when the gun is fired. Adjusted the character's fingers to hold the gun and added logic so that the wrist is rotated along with the gun. Tested a line renderer to use as a laser pointer but changing the rotation was not simple and requires some research if it's even possible.
+<br><br>
+
+28.3.25 <p></p>
+Found a solution to rotate the line renderer using it's transform and it was to turn off "Use world space" on the component settings. Now without any code implementation it moves along it's parent object. Added some code so that a raycast is pointed forward from the linerenderer's position to adjust the length when it hits an object and used a layermask to filter out things it does not need to hit. Without the raycast the line renderer passes through all objects.
+<br><br>
+
+31.3.25 <p></p>
+Used IK to animate a hand with script to reach towards objects when in proximity. Tried distance based and overlap sphere methods. IK constraint hint object caused issues with the hand rotation oddly when weight was at a low value.
+<br> <br>
+
+2.4.25 <p></p>
+Made a small change to hand bone hierarchy in 3ds Max and exported the model back to Unity to make the hand bend a bit more realistically when reaching for objects. This fixed one issue but caused another. Now if the character has a negative rotation the hand rotates backwards so it's not pointing towards the interactable object. The target transform set in "Two Bone IK Constraint" affects the rotation but it can't be rotated in script past 180 degrees so that it could be flipped. Clamping the hand's rotation had no effect in preventing the weird hand flipping. The hand's pivot did not affect the flipping when testing to use another bone with a different pivot rotation as a tip transform. Tested different constraint components but they are intended for different kind of use cases. Tested Chain IK but it uses a FABRIK method. It was not as accurate in placing the hand on the target. Also tried to use a rotational constraint but it did not prevent the flipping.
+<br><br>
+
+7.4.25 <p></p>
+Asked for help with the hand rotation issue and came to a conclusion that it's a bug or some kind of component code issue and I should not spend my time trying to fix it. Changed to Chain IK Constraint and added a Multi-aim Constraint to prevent the hand from rotating towards the character's body. Added some logic to change the target object on Chain IK Constraint but it keeps giving an error because it can't find the object outside the object's range.
+<br><br>
+
+10.4.25 <p></p>
+Put the target object change inside a distance check to fix the error and added the same kind of logic for multi-aim constraint. Multi-aim constraint uses an array for the source object transforms so it required the target transforms to be added into a new array before the targets could be assigned.
+<br> <br>
+
+14.4.25 <p></p>
+Added interactivity to ammo boxes so that ammo can be picked up when in proximity and the ammo can only be picked up once from the ammo box. Tested area lights to use them as a object highlight by placing them under objects. First issue was that because the lights are baked they can't be directly fiddled with in runtime. I then searched for an solution and found a YouTube video on the topic. The video gave an solution that switches between lightmaps and uses Texture2D arrays to save the direction and color maps. So the solution required a bright lightmap where the lights are turned on and another where the lights are turned off. Fixed a small issue that I had not noticed with the hand IK where the multi-aim constraint weight was not being set along with the chain IK.
+<br> <br>
+
+27.9.25 <p></p>
+Started creating procedural grass. I started by generating or creating a singular blade of grass via code and then wrote a shader for it to apply movement. After getting that to work I expanded the system so that I could create a field of waving grass with adjustable parameters. I got the shader to apply circular motion to the blades of grass but due to an issue in the shader my script did not generate the set amount of grass. I got the issue fixed and the entire body of grass moved at once.
+<p></p>
+Next step was to make each blade of grass move out of sync and to change the motion so it looks more like a blowing wind with some fluttering. I had issues getting instancing to work in the shader and had to resort to AI for some help. I then got randomization done and each blade moves nicely out of sync. 
+<p></p>
+Next step would be to apply some type of effect when player moves in the grass. Potentially something like scaling down sections where the player moves.
+<br> <br>
+
+28.9.25 <p></p>
+Checked my Kanban board and updated it with new tasks. 
+<p></p>
+Saw that the character's tail's motion still starts to visually skip after a while and becomes very noticeable when the character rotates. I checked the code to make sure it's not frame rate dependent or that the motion happens in local space so the character should have no effect. The character rotation was not the cause so I tested a PingPong function to create the motion instead of a Sin to test if that's the issue and it wasn't. I then checked if the issue is in Unity's IK system and it was applying rotations on X and Z-axes while my code only affected the Y-axis. As a fix I added rotation constraints to different parts of the IK chain to lock those axes which eliminated the visual skipping and flickering that was happening. 
+<p></p>
+Created another version of the grass shader that supports lighting and has material properties like metallic and smoothness. I then made the grass interactable so that moving in the grass will move it out of the way. With nice interactable grass I also wanted to update the shadows cast by the grass to actually follow the motion instead of being static. Knowing the potential performance reduction of moving shadows I added four quality settings and made the dynamic shadows toggleable. Tested performance with 65 thousand blades of grass on a 100 square meter area and the framerate in editor was still above 60 with a roughly 4 year old laptop.
+<br> <br>
+
+2.10.25 <p></p>
+Made the grass react to terrain or surface height differences by using a raycast.
+<p></p>
+I had a small issue with the system where the raycast was hitting a collider that was set to trigger so the grass was generated on top of that collider. In my early test setup planes use a mesh collider and they also have a collider for cameras that is set to trigger.
+<p></p>
+So as an solution I added layer checks for defining what layers are checked for height and a bool for ignoring colliders that are set to trigger.
+<p></p>
+Next feature was to exclude objects from having grass generated on top of them by using layers. I had an issue drawing an exclusion radius around the excluded objects so that the visualised area is accurate. Solution was to add the radius to the object's collider's bounds.
+<p></p>
+For testing purposes I made a simple terrain noise script that applies noise to a terrain to create uneven terrain. Then I tested how well the grass reacts to height differences as my prior testing was done by placing some spheres on top of a flat surface and by placing flat surfaces at different Y-positions.
+<p></p>
+I watched a video about procedural grass and it mentioned using simplex noise to replicate natural grouping of grass so that tall grass is grouped with tall grass and short with short. I tried to do that with Perlin noise and it worked fine but I wanted to see how it would look with simplex noise. As a solution I created my own script for simplex noise. Now even if the surface would be flat the grass grouping creates a wavy look.
+<p></p>
+Using the simplex noise function I added the option to apply noise to the exterior shape of the grass area. I had some issues getting the noise to only apply to the exterior shape but got the issue resolved by removing some interpolations and calculations that were causing the issue. A gizmo is used to roughly estimate the size of the falloff area where grass starts to become more sparse due to noise.
+<br> <br>
+
+3.10.25 <p></p>
+Started working on a grass placement system so that grass can be placed at different positions. I use a serialized class approach where positions/points can be added to a list with a button and by pressing another button that position can be moved around in the scene view. Each item also has some override settings such as area size, amount of grass and color options.
+<p></p>
+As I realised after looking at the profiler serialized class approach can take a lot of memory. To alleviate the issue I changed to a scriptable object system. Original script was turned into a scriptable object so it holds all the variables. Then a manager script uses that object's variables for generation and other features.
+<p></p>
+With the grass and it's features at a satisfactory point I started making a skybox. I looked at some tutorials for shader graph implementations that had clouds but I couldn't find one where the clouds cast shadows on the ground. So I resorted to writing the shader instead. 
+<p></p>
+The system consists of two main shaders and two supporting scripts that work together to create volumetric clouds with ground shadow projection. 
+<p></p>
+One shader generates procedural clouds directly into the skybox using noise functions and volumetric rendering principles. The core technique uses Fractal Brownian Motion (FBM), which layers multiple octaves of 3D Perlin-like noise at different frequencies to create realistic cloud formations.
+<p></p>
+The other shader replicates the cloud pattern for ground shadows using Unity's projector component. It uses identical noise functions which should ensure the shadow patterns match the clouds.
+<p></p>
+Tried to fix an issue where rotating the character would trigger leg IK to cluster both legs together. I also noticed that something was making the leg flicker. I figured it had to do with rotations being applied on different axes so I added constraints. Then I wanted to make the character's leg lift up when rotating to take a step. Due to the different constraints and the character's simple rig, lifting the leg makes it bend oddly instead of allowing it to warp into itself.
+<br> <br>
+
+5.10.25 <p></p>
+Tested different constraint settings and setups to see if the bending issue is caused by the constraints. As I didn't have another model to test the constraints on I watched a few videos about 3D-model topology and then followed an tutorial for a simple model. The tutorial used Blender but I used 3ds Max so I had to search for some tools in the process. Then I rigged and skinned the model and tested how the legs bend.
+<p></p>
+With the testing model done I fixed my code so that it does not trigger a step when the character is rotating or when pressing forward when rotating as that caused unnecessary movements like clustering the legs together. Even with the new model there were some odd behaviours applied by the constraints so that I had to remove the target's rotation influence on the IK chain to prevent the feet from bending. 
+<p></p>
+I implemented the stepping motion while rotating so that the character lifts it's legs up and down and tested it with the new model.
+<p></p>
+I redid some of the bones on my actual model so that the hands have more bones for fingers to bend slightly better. I also remade the bones on the legs so that there are more bones for the knees to bend and bones for the feet. Before I was actually done with the hands I exported an unfinished version that had no thumbs as I forgot to make them and setup the unfinished version in Unity. After noticing I added the thumbs and had to redo the setup.
+<br> <br>
+
+6.10.25 <p></p>
+Setup the character's scripts and other components. I made the character move slower when going backwards and made the steps shorter. 
+<p></p>
+As there were still issues with the legs I added rotation constraints and with those the stepping while rotating doesn't work. As a solution I interpolate the constraint weight value in code and set their active state to false when it reaches zero. The interpolation should reduce visual issues as the change is not instant. 
+<p></p>
+I created an idle animation for the character's arms so that they move up and down. An issue surfaced when I changed the hands rotation to point down and then tried to use my ammo box interaction where the character places it's hand on the box. As I had redone some of the bone structure the hierarchy had changed slightly so that the wrist was not directly under the bone that is before it. I had to open 3ds Max to fix the hierarchy and do another export for the model.
+<p></p>
+Issues came from getting the hand to place itself on top of the box when it extended from below the box's target. A constraint that only applies to the wrist required an rotation offset to allow placing the hand properly.
+<p></p>
+While testing with two identical ammo boxes I noticed that the hand placement only worked on one of them at a time. Multi-aim constraint that handles rotation for the wrist uses an array for the targets and I was overwriting the current option in code so I changed it to affect the weight of the objects in the array instead. However the cause of the issue comes from Chain IK Constraint that does not work when the source object target is changed in runtime so it will always use the initial target. As an workaround I use an separate transform as the target that is moved when in proximity of objects.
+<p></p>
+I tried to fix an bug where after moving and then starting to rotate the target's position updates from a past position to the current one.
+<br> <br>
+
+7.10.25 <p></p>
+I added an feature for the grass that makes the player transparent while in tall grass. The level of transparency and alpha level's interpolation speed can be adjusted. I then added another feature that affects the alpha of the grass in an area around the player with adjustable area size, effect strength and falloff distance. To make the effects work I had to change my shader's render type from opaque to transparent and queue from geometry to transparent which made the grass look slightly different. Another render type option would be "TransparentCutout" but it doesn't support my soft fade effect.
+<p></p>
+I added an multi-aim constraint for the character's neck and then some code that makes a target transform move horizontally when the character rotates resulting in a subtle head turn into the rotation direction.
+<p></p>
+With more bones on hands I tried placing a gun on the character's hand again. I noticed an Z-fighting issue that was caused by the new grass transparency feature as it has an auto find toggle for all renderers in the object including child objects and it added the gun into the list so that it can become transparent. Outside of the grass this caused Z-fighting. As an solution I save the original settings from the renderers and then set the values and mode to transparent when in tall grass.
+<br><br>
+
+8.10.25 <p></p>
+Added material IDs for the character in 3ds Max to apply some color and details.
+<p></p>
+Added some variables to the transparency system so that the change back to the original material can be delayed or instant. Gun has a laser pointer on it so I made it turn off when the character enters tall grass. I added the recorder package for recording clips of the grass and other systems. I also made another shader to apply a 9-bit RGB palette which still creates a similar effect as the 6-bit palette but allows for more detail. 
+<p></p>
+Continued debugging what causes the leg IK target to update from a past position when rotation starts. The cause was using world space coordinates for the walking which caused the target to update incorrectly when the rotation started. As a solution I separated the coordinate spaces by using conversion functions. Regular steps while walking use world space and rotation uses local space.
+<p></p>
+Fixed an issue where moving and then starting to rotate would cause a small jump. The rotation logic used to stop horizontal movement and preserve vertical speed used the character's horizontal velocity component to set the new vertical velocity. 
+<p></p>
+Followed an Blender tutorial for creating a simple tree. By itself it did not look that great but applying the grass shader on the trees leaves that are made up of "ico spheres" made the tree look alright. The goal would be to make something like a weeping willow tree where the leaves sort of droop downwards. 
+<br><br>
+
+9.10.25 <p></p>
+Created trees in blender and had multiple issues in the process due to accidently copying the model and having it under the model when doing different changes which resulted in having to redo the whole process. Had to redo weight painting multiple times as I made mistakes and Blender crashed every time I applied an modifier. The crashing was caused by having the identical copy of the model under it and when I applied the skin modifier to a bunch tree branches Blender stopped working. With the almost finished model I tried to use an image for the leaves of the tree but due to the lack of mesh detail it did not work for my use case which I didn't realise until I got to testing in Unity.
+<p></p>
+I followed a tutorial for making a singular leaf but it did not show how to merge the curves at the end so I had to look for another tutorial. I found and followed another tutorial for creating plants which started with creating a leaf. 
+<p></p>
+I made a version of the tree with 500 leaves and exported it to Unity for testing. At first there was no movement being applied by my grass shader. I tried different values and there was movement with very high values so the mesh itself was not the cause. I then tried to scale up a singular leaf and it started moving with normal values. So the issue was not having the scales reset to one.
+<br><br>
+
+10.10.25 <p></p>
+Started creating plants by following the same tutorial I used for the singular leaf. I created tree different plants as was shown in the tutorial and it started by creating a template that was then copied and modified to create the plants. The template utilised a Bezier curve and a curve modifier to apply a curve for the stem and the petals or leaves to follow. An array was applied to a single leaf and the array was made to follow an empty object that was scaled and rotated to place all the leaves along the stem. I modified all the plants so that they all look very different. A small issue came from scaling the plants as selecting all the parts and scaling down broke the proportions. Solution was to place each of them under a parent object and then scaling the parent object.
+<p></p>
+I tested different versions of the model as I wasn't sure if having all the leaves separately would work. Having all the leaves move separately did not work with my shader as they are not moving the stem. Solution was to merge the stem and the leaves into a single mesh.
+<br><br>
+
+13.10.25 <p></p>
+Followed an Blender tutorial for creating a bush. It used a box mesh that is used as a surface for particle system that then places leaves on the box's surface. The end result looked too much like a box so I iterated with an sphere that I split in half. An issue came from having the particles projected on the inside of the sphere and making the leaves cover enough of space so that the bush is not see through. A working version uses around two thousand leaves which makes it far too demanding for my use case. 
+<br><br>
+
+21.10.25 <p></p>
+Created bushes using methods I used for plants. I had issues when applying an array modifier to my stem as it used some much larger scale for the copies and placed them in the wrong places. I did not figure out what causes it. I then tested to use a cylinder mesh as the objects to copy by the array and there was no issue. Solution was to modify the cylinder into the shape of the stem. I made a stem with leaves and then attached that to a larger stem. Then that became a branch that was attached to a even larger stem. The end result was a far too high vertex count model as I had used subdivision modifiers on the leaves and some other parts. Trying to use a decimator modifier to reduce the count made Blender crash and I could not open the project file without Blender crashing. I had to redo the bush from an earlier copy where I had a singular branch that I could work with and I made the bush wider. I exported two versions of the bush into Unity so that one is taller than the player and the other is around the player's height.
+<br><br>
+
+23.10.25 <p></p>
+I had noticed a small issue with my skybox and casting shadows with a projector. The projector is set to affect every layer so it also affects my moving bushes. As a side effect the projector creates static shadows on the bushes and other objects affected by my shader because it doesn't know about the vertex displacements and only sees base mesh positions. It would be possible to modify the projector so it takes the vertex displacement into count but it could have an large effect on performance. Adjusting far clip plane on the projector reduced the static shadow visibility but it also made it so that shadows are barely visible on other surfaces. Ideally the shadows would be cast on the bushes and everything else but because of the visual artifacts and difficult workarounds I decided to use the ignore layers feature on the projector. It allows to simply exclude the problematic objects so that they don't get shadows from clouds.
+<p></p>
+Fixed a small issue with the leg IK for the right leg where the root, mid, tip bones did not match with left leg.
+<p></p>
+Started working on a water shader using shader graph that has caustics or water shadows. It uses layered Voronoi noise for the caustic shape and some gradient noise for added detail. Also added depth-based features so that the water color changes with depth.
+<br><br>
+
+24.10.25 <p></p>
+Reworked the depth feature by following Unity's tutorial on water shaders. The water mainly had horizontal movement and I moved all the nodes for that to the side to use later if needed. I remade the caustics pattern in a sub graph to make it more reusable and applied wavy movement in that graph. I had some issues getting the wavy movement to work as my first iteration mostly created a pulsing brightness and shape alteration. Solution was to use a time-varying Simple Noise function and add its output to the Voronoi's UV coordinates to create the wavy or wobbly motion. The original problem of the pulsing/flashing was caused by feeding a time-based value into the AngleOffset input of the Voronoi node, which made the caustic pattern continuously spin, creating the visual effect of flashing or pulsing brightness. I then made a light direction feature that makes the water react to main light's direction and intensity. I had issues getting the light intensity to work at all and got errors when using a custom function with the type as string. I had to write a hlsl script to insert into the function's file to get the feature to work. During testing the lights influence was rather hard to notice so I will probably adjust the values and check the calculations. I then added a feature that makes caustics fade by water depth. I might make the depth calculate itself automatically. 
+<br><br>
+
+25.10.25 <p></p>
+I was trying to get water caustic projection to work and couldn't find a solution for it. I then got an idea to convert my project to Universal Render Pipeline (URP) as that allows to use some features that are not otherwise supported. I luckily did not need to redo my caustics sub graph and could otherwise copy the main graph to an URP shader graph where I set the properties or variables again.
+<p></p>
+6bit color shader no longer worked in urp and I had to write a scriptable render feature and then create a new version of the shader so I could apply a material with the new shader into the render feature and then set a render pass event to declare when to apply the color change.
+<p></p>
+Skybox systems required fixing apart from the main shader. Projector component was no longer available for casting cloud shadows. Closest alternative was to use a urp decal projector that I had a lot of issues with. It requires a decal type material and small changes to the shader made the component not recognize the material as decal. A persisting issue was that the decal being drawn was fully pink but not in the same way when there's an error in a material. Another issue was scaling the shadows and getting rid off all the white that's usually on a noise texture. I tried different ways to make the shadows less bright as they were fully white. I got the shadows working but the result is not as good as with the original projector component.
+<p></p>
+Grass shader required a new version because the grass was no longer being drawn. Some changes that were made: manual lighting calculations were replaced with URP's PBR lighting, shadows were redone to use a urp function, matrix and function changes and added depth pass. 
+<p></p>
+Made another branch for version control and pushed the URP version of the project into that branch in case there are too many issues with URP.
+<br><br>
+
+
+
+ 	        </p>
+                    
+                    	
+					<p>
+
+					      </p>
+					
+					
+					
+					<p class = "text" >  </p>
+					<div id="ImageFive">
+						</div>				
+					<div id="ImageSix">				
+						</div>
+					
+
+                   			
+					<p>  
+					 </p> 
+					<p>  </p>
+
+				</div> <!-- Article:n lopetus -->
+				
+				<div id = "SideBarRight" >
+				<h3>Gameplay video </h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/8Q86jQIfhKs" frameborder="0" allowfullscreen=""></iframe> </p>
+ 			    <p> <iframe class = "embed" src="https://youtube.com/embed/FnjIh6UHtgE" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+            </div>
+            
+        </div>
+    
+	</body>
+</html>

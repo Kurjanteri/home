@@ -1,0 +1,372 @@
+html, body
+{	
+
+	width: 100%;
+    margin: 0;
+	
+    font-family: Arial, sans-serif;
+	text-align: center;
+	background-color: black;
+	
+	font-size: 24px;
+	
+	
+}
+
+
+
+
+#PageWrapper
+{	
+	 /* tekstin väri: valkoinen, taustakuva */
+	color: white; 
+	background-image: url(../IMG/Boxes.jpg);
+	background-size: contain;
+	 background-attachment: fixed;  /* tausta ei liiku mukana, mutta dropdown ei liikuta taustaa avautuessaan */
+	
+    
+}
+
+
+#Header
+{	
+	
+	padding-left: 30px;
+	padding-top: 5px;
+}
+ 
+
+section 
+{
+	text-transform: uppercase;
+}
+
+
+ul
+{	
+	font-weight: bold;
+	list-style-type: none;
+	margin: auto; /* Saadaan navigaatiobaari keskelle sivua, koska se luo yhtä paljon tilaa vasemmalle ja oikealle. */
+	padding: 0;
+	overflow: hidden;
+	position: -webkit-sticky; /* Safari */
+	position: sticky; /* Saadaan palkki pysymään paikallaan ja seuraa mukana rullatessa alaspäin */
+	top: 0;  /* Määrittää sticky baarin paikan */
+	width: 15%;
+	font-size: 20px;	
+}
+
+.nav
+{	overflow: hidden;
+	border: none;
+	
+	width: 100%;
+	height: 100%;
+	
+	
+	display: block;
+	
+	cursor: pointer;
+	text-align: center;
+	
+	font-weight:bold;
+	font-size: 20px;
+	color: white;
+	background-color: transparent; 
+	text-decoration: none;
+	text-shadow: 2px 2px black;
+	font-weight: bold;
+	
+	list-style-type: none;
+}
+
+
+
+/* Contact nappulan muotoilu */
+li a  
+{
+	display: block;				
+	color: white;			  /* Tekstin väri: valkoinen */
+	text-align: center;  	 /* Teksti keskelle */
+	padding: 16px 16px; 	/* Kuinka iso painike on */
+	text-decoration: underline; /* Tekstin muotoilut pois. esim ei alaviivaa linkkeihin */
+	text-shadow: 2px 2px black; /* Tekstille varjostusta */
+	background-color: black;
+}
+
+/* Kun Resume Page painikketta hoverataan. */
+li a:hover
+{
+	background-color: #42AB71;
+}
+	
+
+/* Lainattua tavaraa alla w3schools*/
+
+/* Projects napin muotoilu */
+.projects 
+{
+	  text-shadow: 2px 2px black;
+	  display: block;
+	  padding: 16px;
+	  
+	  background-color: black;
+	  cursor: pointer;
+	  font-size: 20px;
+}
+
+/*  Miten dropdown sijoitetaan */
+	.dropdown 
+{
+	  position: relative;
+	  display: block;
+	  
+	
+}
+
+/* Dropdown Content vakiona piilossa */
+.dropdown-content 
+{
+	  right: 0; /* Saadaan valikko aukeamaan oikealla */
+	  display: none;
+	  position: bottom;
+	  background-color: black; /* Dropdown valikon "projects" taustaväri */
+	  min-width: 20px;
+	  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	  z-index: 2; /* Laatikko voi tulla elementtien päälle */
+	  
+}
+
+/* Dropdown menun sisältö */
+.dropdown-content a 
+{
+	  
+	  padding: 15px 15px; /* Vaikuttaa dropdown valikon tekstien asetteluun */
+	  color: white;
+	  display: block;
+	  text-shadow: 2px 2px black;
+	  
+}
+
+/* Vaihtaa dropdown tekstien taustaa hieman harmaaksi, kun hiiri on päällä */
+.dropdown-content a:hover {background-color: #42AB71;}
+
+/* Näyttää menun, kun hiiri on menun päällä */
+.dropdown:hover .dropdown-content 
+{
+	display: block;
+}
+
+/* Vaihtaa dropdown nappulan värin, kun nappula on valittuna */
+.dropdown:hover .projects 
+{
+	background-color: #42AB71;
+}
+
+/* Lainaus päättyy */
+
+
+.pdf { 
+	width: 70vw;
+	height: 70vh;
+
+}
+
+.takaisin 
+{
+	color: #42AB71;
+	text-shadow: 2px 2px white;
+}
+
+.video 
+{
+	
+	width: 600px;
+	height: 600px;
+	
+}
+
+ /* Keskiosan sisältö */
+#middle
+{
+	font-size: 1REM; /* Tekstien fontti */
+	
+	
+}
+
+ /* Ostikko fontti */
+.bolds 
+{	
+	font-weight: bold;
+	color: white;
+	font-size: 2EM;
+	
+}
+
+/* Keskiosan kuvat */
+.project_images
+{
+	
+	background-position: center;
+	height:  auto;
+	width: 20vw; /*  28vw = 537.6px */ 
+	min-width: 45%;
+}
+
+/* Tekstilinkkien väri ja muotoilu pois */
+.txtL
+{
+	color: #42AB71;
+	text-decoration: none;
+}
+
+
+
+.mobilevideo { display: none; }
+
+/* Piilotetaan mobiiliversion linkit pc sivulta */
+#MobileLinks { display: none; }
+
+
+/* Piilotetaan mobiili näkymän valikko */
+#Mobile { display: none; }
+
+
+/* Tabletti koossa nimen väriä vaihdetaan */
+@media screen and (min-width: 751px) and (max-width: 950px) 
+{
+	#Header { color: #42AB71; }
+
+}
+
+@media screen and (min-width: 250px) and (max-width: 750px)
+{
+	/* Koko dropdown valikon sijainti */
+	#Mobile 
+	{
+		display: block;
+		position: -webkit-sticky; /* Safari */
+		position: fixed; /* Saadaan palkki pysymään paikallaan ja seuraa mukana rullatessa alaspäin */
+		bottom: 0; /* bottom */
+		width: 100%;
+		
+	}
+		
+	#PageWrapper
+	{
+		width: 100%;
+		display: block;
+	}
+
+	.video  /* Embed videolle oma elementti.  otetaan paddingillä irti reunoista */
+	{
+		width: 90%;
+		margin: 10%; 
+		
+	}
+	
+	
+	/* Piilotetaan pc näkymän valikko */
+	ul
+	{
+		display: none;
+	}
+	
+	/* ☰ Merkki */
+	.dropbtn 
+	{
+	  text-shadow: 3px 3px black;
+	  display: block;
+	  padding: 0px; /* 20px */
+	  font-size: 80px; /* 120px */
+	  border: 3px solid white;  /* 5px Nappulalle reunus, että erottuu hieman paremmin taustausta */ 
+	  border-radius: 5px; /* Pyöristää reunaa */
+	  cursor: pointer;  
+ 	  
+	  
+	}
+ 
+ 
+	/* valikon sisältö */	
+	.dropdown-content a 
+	{ 
+	  text-shadow: 1px 1px #42AB71;	
+	  color: white;
+	  padding: 12px 16px; /* 12px 16px */
+	  text-decoration: underline;
+	  display: block;
+	  font-size: 25px;
+	  background-color: black; /* dropdown menulle annetun alueen taustaväri */ 
+ 	  
+	}
+	
+	
+	
+	.dropdown 
+	{
+	  
+ 	  position: relative; 
+	  display: block; /* inline-block nappi pienempi, display: block; nappi ja valikko on koko sivun leveydellä */
+	}
+
+
+	.project_images
+	{
+	width: 100%;
+	height: auto;
+	}	
+
+
+	/* Resume ja contact */
+	.plusmenu 
+	{
+	text-decoration: none;
+	text-align: center;
+	text-shadow: 1px 1px #42AB71;
+	  
+	display: block;
+	  
+	font-size: 25px;
+	
+	background-color: black; /* Tekstipainikkeen taustaväri */
+	color: white; /* white */
+	  
+	overflow: hidden;
+	border: none;
+	
+	width: 100%;
+	height: 100%;
+	padding: 12px 16px; /* 12px 16px */
+	
+	cursor: pointer;
+	text-align: center;
+	
+	list-style-type: none;	
+	
+	}
+
+	#contact 
+	{	
+	width: 50%;
+	}
+	
+	
+	.video { display: none; }
+	
+	.mobilevideo 
+	{
+		display: block;
+		width: 80vw;
+		height: 50vh;
+		margin: auto;
+	}
+	
+	.title { display: none } /* "Showcase of projects" teksti piiloon */
+    .bolds { display: none } /* "Showcase of projects" teksti piiloon */
+
+	#MobileLinks { display: block; }
+	
+	#PCLinks { display: none; }
+
+} /* Mobiili lopetus sulku */
+

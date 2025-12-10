@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+
+<html lang="fi"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Sekalaiset MN</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- määrittää sivun leveyden hyödyntämään viewportin leveyttä -->
+        <link rel="stylesheet" href="CSS/styles.css"> <!-- Linkataan CSS tiedostoon -->
+    </head>
+    <body>
+        <div id="PageWrapper"> <!-- Kaikki elementit tulee PageWrapperin sisälle -->
+            <div id="HeaderWrapper"> <!-- Headerin sisälle laitettiin kuva -->
+            </div>
+			<div id="ContentWrapper">
+                <div id ="Sidebar"> <!-- SideBarin sisälle tulee tekijä, kuvat -->
+                    <div id="DevTeam">
+                        <h1>Creator:</h1>
+		  	<p> Mikko Nurminen </p>
+                        <p> Student </p>
+
+						<h1> <a class = "takaisin" href="https://portfolio.gamelab.fi/mikko.nurminen/"> Homepage / Go back </a> </h1>
+
+                                            </div>
+
+
+						<div id = "mvideo" >
+				<h3>Gameplay videos </h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/33pJAntT6vg" frameborder="0" allowfullscreen=""></iframe> </p>
+ 			    <p> <iframe class = "embed" src="https://youtube.com/embed/Jcr9r3gr2q4" frameborder="0" allowfullscreen=""></iframe> </p>
+  		        <p> <iframe class = "embed" src="https://youtube.com/embed/u52D3orPqpY" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+				
+	
+
+						
+						<!-- Kuvat omassa osiossa SideBar elementin sisällä -->
+						<div id="ImageOne">
+                        
+                        <p class = "text" > Enemy </p>                            
+						</div>
+						
+						<div id="ImageTwo">						
+						<p class = "text" > Flower </p>
+						</div>
+						
+						<div id="ImageThree">				
+						<p class = "text" > Placeholder </p>
+						</div>
+                </div>
+					<div id="Article"> <!-- Käytetään teksti elementtinä -->
+					
+                    <h1>Sekalaiset</h1>
+                    <h2>Description</h2>
+                  
+                      
+                     <p> Sekalaiset projektit  
+			<br>  
+		     </p>
+                    
+                    <h3> Art and Music </h3>
+			<p> 
+			Waiting for creation.
+			</p>
+
+		<h3> Creation process / Context based issues and solutions </h3>
+			<p>
+Tasosuunnittelu ja -toteutus: level project:
+<br> <br>
+8.3.24
+player script with movement, camera rotation, weapon throw, weapon hit and player health system. UI-elements for health and a text indicator for when a weapon/object can be thrown. Script for enemy health and taking damage. Weapon hit uses a simple animation that moves the weapon forward in a slow motion. Weapons/objects can be thrown with right mouse click and has a delay of around 4 seconds to prevent using them like a gun. Weapon is placed on the left and throwables come from the right to correspond to the mouse buttons. Camera rotation is limited to the X-axis for a old school feel and because there is no intended verticality in the level design that would require Y-axis aiming.
+<br> <br>
+9.3.24
+Made a enemy movement script that originally used a regular approach to move and rotate the enemy towards the player that got replaced with NavMesh and Nav Mesh Agent so that the enemy only follows the player on the NavMesh designated area which is important later in the project. Tried context.started and ended for sword hit to prevent unnessecary hits from happening when the enemy is approaching. Solution was to turn off the weapon collider before the animation resets and by adding some pushback when an enemy is hit. Pusback was also added to throwable objects to be used as a spacing tool. Made a seeing/radius system where the enemy can only see the player withing a roughly 45 degree angle and from very close distance. When the enemy is in iddle it rotates 90 degrees at a time. Some kind of patrolling system might be added later.
+<br> <br>
+12.3.24
+Changed detection system to use raycasts and a layermask so that the detection won't happen through walls. Watched a tutorial for NavMesh enemy patrolling that uses an array of transforms for the route points the enemy walks between and iterates through them. Then tried different approaches with bools and coroutines for rotating the enemy after it has lost vision of the player to imitate looking around because the rotation is called in Update and done in intervals. After rotating, the enemy is set back to patrolling the area. Issue: enemy rotates randomly before starting to rotate in the intented way. Solution: ??
+<br> <br>
+15.3.24
+Modeled: enemy, weapon, throwable and keycard in 3ds Max. Throwable is a banana and weapon is a spear. Wrote scripts for the keycard and door opening. Also made a jump pad script. Used Quixel Mixer to create materials for the enemy, floors, walls and weapon. 
+<br> <br>
+19.3.24 
+Searched youtube with something like "Unity level design" and found a video about realtime CSG. Got it from the asset store and decided to try it to build the level. Link to the tool: https://realtimecsg.com/ . Referenced the design plan on Figma and created the starting room and first room with one enemy and jump pad to leave the room. Had some issues with navmesh when it was placed on a "brush" that CSG uses to make all the objects. When in playmode the brushes would disappear from the hierarchy so any navmesh did not work. Solution was to place the navmesh on a brush parent object called "Model" that handles every brush and has other properties. Still the drawn navmesh appears on some unwanted surfaces like on roofs. Another issue was setting areas for the navmesh so that the enemy can't follow the player to the starting area. Solution was to place a cube object at starting area entrance, then bake the navmesh, set the cube layer to Wall so the player raycast hits something, and then disable the mesh renderer.
+<br> <br>
+22.3.24 
+Changed textures/materials for all textures to 64-bit and Filter mode to Point (no filter) so that everything looks pixelated. The more fine detail and height in the normal map in the more pixelated everything seemed to look. Created new textures for keycard, enemy body, enemy horns, enemy eyes and a door. Tried to use MaterialPropertyBlock to change the color of the enemy eyes seperatly. Reason for that is to make it so that the material color does not change for every enemy when it happens to one of them. Did not find out how to make this work. Used animation to slowly rotate keycards in place and with some help managed to loop the rotation seemlessly. Solution was to go in the Animation window and by right clicking keys and setting "both tangets" to linear. 
+<br> <br>
+Tried to use renderer.material.color = __ but the selected material was the first one on the list. Solution was to use renderer.materials[2].color so that the third material on the renderer was selected. This does cause all the materials to be instanced which could cause some load but it works. 
+<br> <brb>
+26.3.24 
+Created the first pause room and made changes so that doors require pressing E to open. Proximity check is done with box trigger so that the player does not have to kiss the door to open it. Modeled and created textures for: chair, table, cigar/tobacco, pause room floor. Used particle system for cigar smoke and used another particle system to cover the room ceiling with smoke. Issue: Particles clipping through walls. Solution: Added collision and really short killtime after collision so that the processing load should not increase a lot by the collisions. Implemented a healtpickup as a banana placed on top of pause room table. By pressing E while close to it can take a bite and health increases. After two bites the banana is destroyed. Disabled gradient from healtbar due to color not turning back when the slider value is increased. Created a window for pause room by creating a transparent material and reusing a keycard texture.
+<br> <br>
+28.3.24 
+Modeled a keycard reader for doors. Keycard reader has an animation that can be activated when a keycard is picked up. The animation moves another keycard that is set to active and it slowly moves into the reader. Reader has a red light that turns green and the door then moves up. Edible banana in pause room now has a billboarding text (E)DIBLE. Increased spear hitbox size so that connecting hits is easier. Created several walls for existing walkways and put a lamp with point and spotlight above a keycard to highlight it. Added glass to roof window in the first room. Issue: Window glass borders are transparent and show the insides of walls. Solution: Place window on the edge of a window hole instead the middle of it.
+<br> <br>
+29.3.24 
+Created one large room with an elevated path that leads forward. Stairs that lead to the room. Followed Unity's water shader graph tutorial to make a water shader. It's used for a water glass that is placed on top of a table. To fill the glass I use a smaller copy of the glass and apply the water shader material to it. Also the water shader is used on a bigger plane that surrounds the entire level.
+<br> <br>
+30.3.24 
+Watched some videos for ideas on how to make a simple flower with 3ds Max and then modeled a flower for the water glass. The flower has 3 rounds of petals and I made an alternate version where I applied noise to make the petals look more organic. Also made changes to water tiling and the speed it's moved at to reduce performance load. Added a glass floor section to first room and changed enemy patrol points so it moves on top of the glass floor. Added lights to corridors and in front of some doors for visual cues. Made a beachball and added a physics material to it so it can bounce when placed on top of jump pads or when it's dropped. Due to getting inspired by the beachball I modeled a snorkeling mask and a safety float for an enemy or enemies to wear. Made a pile out of the safe floats and placed them at the start of the level. Issue: Floats collide with each other when in play mode and fly around. Solution: Reduced box collider size. 
+<br> <br>
+31.3.24 After some testing with the safety floats I tried to increase the collider size and put the mass back to the regular value of 1. Enemy still struggled to push the floats so I put the float mass to 0.1 and the issue of them flying around was not present. Maybe it was caused by some angled floats that I straightened at some point or there was a lot of colliders overlapping. I also tried to set the float mass to 0.1 with code so that when entering play mode the floats would have a mass of 1 and it would be reduced to 0.1 slightly after. This solution or backup idea might work later if I place more safetyfloats around the level into piles and use steep angles.
+<br> <br>
+5.4.24
+Created a path to a pool room and a side door for a health pickup that also has a floor trap that deals damage to player. Path leads to a pool that has a keycard in it. Tried to modify some code to use rigidbody instead of transform so that the player could swim in the water somewhat realistically.
+<br> <br>
+6.4.24 
+Tried different methods to simulate swimming in a pool and ended up tracking the player entering the pool with a box trigger and then locking the player transform temporarily into the water while using some calculations to move the player up and down. Also tried to move the entire body of water with the same method but it did not look good enough when walking on top of it. Applied the water movement to my water plane and placed a float on top of it to make the movement more apparent. Had issues trying to get the player out of the water once in it due to the transfrom being locked and not noticing or understanding soon enough that I had to disable a bool while still inside the box trigger to then apply force to the player rigidbody. Also because of using realtime CSG to make a hole for the pool it was not symmetrical. When checking for distances between pool center and walls there were inconsistencies and I used gizmos to fix the symmetry and had to then check the vector3 values I had entered for each wall of the pool. Implemented a simple timer to prevent the player from being pushed out of the pool when jumping in. Placed a button and made a test animation for it to activate a jump pad.
+<br> <br>
+8.4.24
+Wrote script for the button to change material emission for the jump pad and it also activates the box collider that is used for checking collision and applying force to the player.
+<br> <br>
+9.4.24
+Created a locker room and modeled a locker for it. Then created a larger cylindrical room that is supposed to be like a lobby or reception. Modeled a reception desk, and a hand bell. Also modeled a sign and created text inside 3ds Max for the first time. Put an enemy on the pool area for patrolling and gave it a safetyfloat. Then put a snorkel in the bottom of the pool to indicate that maybe the enemy dropped it there.
+Issue: Slider (health bar) does not work correctly. Even if the slider value is increased by eating a banana the value is somehow saved when taking damage from an enemy before that. So after eating and then taking damage the slider value is decreased from the value prior to eating a banana. Solution: Use the damage taking function but use a negative value to increase the slider value?
+<br> <br>
+12.4.24  
+Made changes to room with the flower so that the path that leads forward is a walking maze. Added an enemy to walkway after the very first room in the start and two enemies to a walkway leading to the pool area. Decorated some enemies with safety floats and snorkels. Modeled a simple open book and placed in in the starting point on top of a table. Modeled shorts for locker room that the player picks up and that changes a text I added on top of the healtbar from "NAKED" to "CLOTHED". Added a bigger enemy into the lobby room as a final boss and a healtbar is displayed on top of the screen to show the boss health. Added smaller enemies (childen) to the lobby room that can be attacked but they don't move.
+<br> <br>
+15.4.24
+Cut recorded sounds in Reaper for things like weapon hits, throwable hits and eating sounds. Spent majority of time trying to filter out background noise in recorded sounds so that they would sound clear as possible in game. Made a audiomanager script for all the audio clips and then called that from different scripts. Audiomanager has arrays for audioclips and then i use random.range to play the sounds semi randomly. Experimented in Reaper with a synth plug-in called Vital to create menu sounds but did not figure out yet how to record the sounds created into a audio track. Managed to make a very JRPG like bloop sound that i plan to use when navigating in menus. Tried to implement walking sounds but as of now the sounds are not playing properly.
+<br> <br>
+16.4.24
+Searched for royalty-free sounds in Pixabay for water splashes, dog toy, metal door opening, ocean and ventilation machine ambient sounds. Ocean sounds are played when near a roof window and water splashes are played when entering and exiting a pool. First is a bigger splash for entering and the second is a smaller splash with some dripping sounds when exiting. Because of adding the air ventilation ambient sound that is played all over the level I modeled a simple air vent door and placed those around the level. Tried several door opening sounds but ended up using one that is labeled as moving a stone statue. For player grunts I searched for free to use grunts but ended up trying out voice acting myself and did some grunts and added reverb and lowered the pitch. Added a roof to pool and pool walkway. Also placed several lamps to light the pool surroundings and some inside the pool as decorations. Gave furnitures like tables and chairs impact sounds when player walks into them by using some of the sounds I intented to use for walking. Issue: When implementing ambient ocean sounds for a roof window the distance from the audio source was not taken into consideration. Solution: Watched a short tutorial and noticed the "spatial blend" has to be set entirely to 3D for it to work.
+<br> <br>
+18.4.24
+Created a end credits roll that fades in when the final boss is defeated. Used animation to move UI text upwards and also timed animation so that the credits start to show when the screen has fully faded to black. Music during the boss battle and ventilation sounds are faded out when the boss dies. Made fine tuning to ventilation sound area so that it's cut off when entering the lobby. It was previously set to 2D spatial blend to have the sound play in the entire level but I wanted to isolate the lobby from the sound so I changed to 3D blend. Then I had to set "Spread" to 180 so that the sound is still played to both ears at the same volume regardless of where the player is facing. Modeled a glass door that leads to a helipad and modeled simple railings for a platform that leads to said helipad. Before entering the locker room I decided to split the small pathway there and divert the player towards a shower and sauna room. Issue: Taking the volume from an audisource and saving it into a float to reduce the volume of it breaks all instance calls from the audiomanager. Solution: Only do the assignment to a float inside audiomanager script itself. Used for fading out audio.
+<br> <br>
+19.4.24 
+Did not test the 3D blend properly and found a solution to playing the ventilation sound by simply placing the audisource onto the player and then having it high up in the level so that the sound is quiet even when the volume is set to 1. Encountered a non issue bug where trying to open the second locked door before the first one had been opened did not work. Due to the nature of the level being a straightforward walkthrough it does not matter. Most likely caused by some refence issue and the animator flag is not set to true correctly by the second door. Created a sauna for the shower / sauna room and placed a audisource into the sauna to play sounds. Modeled the sauna door.
+<br> <br>
+Later that day:
+Added music so that it's played in the lobby room and another track is played when the credits roll. Added sound to shower and used a custom volume rolloff so that the audio can't be heard from another room and so that the sound is played well enough inside the shower room. Searched for a cowbell sound and added it for picking up items. Added a sound for slider buttons and timed it with coroutine so that it's played when the button slides into place. Searched for a lawnmower sound, looped it in Reaper and then added it to enemies. 
+<br> <br>
+20.4.24 
+Added a sound for reading a book at the start of the game and made a script that writes the lore synopsis of the game on a canvas that is activated. Made a compass script and a tested different circular UI-elements for it but decided to not use it in this project. Added an activation sound for a floor trap and added a unused player grunt as a taking damage sound from the floor trap. Made adjustments to billboarding text objects so that they don't clip through walls and unified the size of them. Made a simple pause menu with continue and quit buttons and then set a onclick sound for the continue button.
+<br> <br>
+21.4.24
+Watched a short youtube tutorial on how to make the game look pixelated. It uses a render texture and a UI Raw Image. I set the size in the Render texture to 142 x 80 and then that texture is applied to the Raw Image. Put the render texture into the main camera's output texture and that makes the game look pixelated. Added a button into pause menu that turns on the pixelation effect. Issue: Pixelation does not affect any UI elements. Solution: Not found..
+<br> <br>
+23.4.24
+Tried to pixelate the UI with various mehtohds like applying a material to the font, different shaders to camera, materials to camera. Created a green fliter to use with the pixelation filter. Fixed book reading so that the text position is reset when reading is stopped. For whatever reason the rect transform position was not being saved so resetting was done by increasing a value when the text moves upwards and then that value was decreased from the position and zeroed when the position had to be reset.
+<br> <br>
+3.11.24
+Added a swaying effect to the camera to simulate the feeling of being under substances.
+<br> <br>
+Maze generation project:
+<br> <br>
+28.4.24
+Created a simple flail weapon with box primitives and hinge joints. Spent a lot of time creating a script that spins the flail around and decreases the speed when a button is released. Tried different methods for swinning the flail and tried to fix rotation issues when I tried to make it so that the flail handle is at a 90 degree angle poiting forward. Issue was that the handle would not spin around itself in that rotation so I had to give up the idea. 
+<br> <br>
+30.4.24
+Made changes so that the flail follows the cursor and can be swung around. Force is applied to the chain of the flail based on the direction of movement and force is only applied when the handle rotates a certain amount. I need to change the handle into the base of the chain later so that if I use a visible hand the hand is moved in circles in a somewhat natural way instead of seeing a handle spin around itself. Issue: Tried to use callbackcontext .canceled to set a bool to false that would then apply force to the flail's chain when I released a button. This was so that the chain and ball would fly into the direction I swinged at. While testing, the bool check did change but the force was never applied correctly or long enough. Solution: Did not use .canceled for this.			    			   
+<br> <br> 
+1.5.24
+Modeled the flail in 3ds Max and created a less realistic chain first but due to getting another opinion on how it looks I then made a more normal looking chain. Looked at a tutorial on how to get started with the shape. When one part of the chain was done I applied noise to each chain part to make it look twisted and more realistic or used in some way. Then I applied hinge joints and tested how it looks in Unity. Modeled a simple helmet by diving a box primitive to a few sections and then by applying a spherify modifier. I got the idea from a video that was related to connecting objects to eachother and a way to create create simple human or humanoid heads was showcased as a byproduct of that tutorial.
+<br> <br>
+ 			    			  </p>
+                    
+                    	
+					<p>
+
+					      </p>
+					
+					
+					
+					<p class = "text" >  </p>
+
+					<div id="ImageFour">				
+						</div>
+					<div id="ImageFive">
+						</div>				
+					<div id="ImageSix">				
+						</div>
+					
+
+                   			
+					<p>  
+					 </p> 
+					<p>  </p>
+
+				</div> <!-- Article:n lopetus -->
+					<div id = "SideBarRight" >
+				<h3>Gameplay videos </h3>	
+					<!-- Video embed. Erillinen class elementti "embed" jolla määritetään videon kokoa.  -->
+				<p> <iframe class = "embed" src="https://youtube.com/embed/33pJAntT6vg" frameborder="0" allowfullscreen=""></iframe> </p>
+ 			    <p> <iframe class = "embed" src="https://youtube.com/embed/Jcr9r3gr2q4" frameborder="0" allowfullscreen=""></iframe> </p>
+  		        <p> <iframe class = "embed" src="https://youtube.com/embed/u52D3orPqpY" frameborder="0" allowfullscreen=""></iframe> </p>
+				</div>
+            </div>
+            
+        </div>
+    
+	</body>
+</html>
