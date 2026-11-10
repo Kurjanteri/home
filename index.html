@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-
-<html lang="fi"> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<head>
+<html lang="fi"> 
+	<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Portfolio MN</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- määrittää sivun leveyden hyödyntämään viewportin leveyttä -->
         <link rel="stylesheet" href="portfolio/CSS/styles.css"> <!-- Linkataan CSS tiedostoon -->
@@ -24,7 +23,7 @@
 						<li> <a href="/home/portfolio/PDF/CV.html" title = "Resume_Page" alt = "Resume_Page"> Resume Page</a> </li>
 							
 								<!-- Dropdown valikko -->
-							<div class="dropdown">
+							<li class="dropdown">
 								  <a class="projects"> Projects ☰ </a> 
 									<div class="dropdown-content">
 										<a href="/home/2D/" title = "Ros Viridis" alt = "2D-Tasohyppely">2D-Tasohyppely / Ros Viridis</a>
@@ -35,7 +34,7 @@
  									<a href="/home/Valvontakamera/" title = "Valvontakamera" alt = "Valvontakamera"> Valvontakamera </a>										
 										
 									</div>
-							</div>	
+							</li>	
 					</ul>
 							
 							<!-- Mobiilisivun valikot  -->
@@ -53,8 +52,8 @@
 								  <a href="/home/portfolio/PDF/CV.html" title = "Resume_Page" alt = "Resume_Page"> Resume Page</a>
 								 
 								</div>
-								 <!-- Saadaan nappi alimmaiseksi. ÄLÄ LAITA SULKUA <a perään -->
- 							    <a <button class="dropbtn" id="myButton" onclick="myFunction2()"> ☰ </button> </a>
+								 <!-- Saadaan nappi alimmaiseksi. -->
+ 							    <a class="dropbtn" id="myButton" onclick="myFunction2()"> ☰ </> </a>
 							</div>
 						</div>
 						      
@@ -80,7 +79,7 @@
 							</script>
 							
 						<div id = "middle">
-							<p class="bolds" id="showcase"  class = "title" > Showcase of projects </p> <!-- ÄLÄ LAITA SULKUA <p perään. -->
+							<p class="bolds" id="showcase"  > Showcase of projects </p> <!-- ÄLÄ LAITA SULKUA <p perään. -->
 							<!-- Video embed. Erillinen class elementti "video" jolla määritetään videon kokoa.  -->
 							<iframe class = "video" src = "https://www.youtube.com/embed/d5SW9z42jB4" frameborder = "0" allowfullscreen> </iframe> <!-- videolaatikko -->
 								
@@ -96,7 +95,7 @@
 
 						
 							 	<p class = "bolds" > Some images: </p>
-								<p> Binary Space Partioning level, Resources, Enemies and path found by A-star/A* </p>
+								<p> Binary space partitioning level, Resources, Enemies and path found by A-star/A* </p>
 								
 								<!-- Kuvat ja alt teksti -->
 								<img class = "project_images" src = "/home/portfolio/IMG/PathFind.png" title = "Path_Find" alt = "Path_Find_img"> 
