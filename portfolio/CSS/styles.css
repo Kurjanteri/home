@@ -1,25 +1,26 @@
-html, body
-{	
+html, body 
+{
 	width: 100%;
-    margin: 0;
-	
-    font-family: Arial, sans-serif;
+	max-width: 100%;
+	overflow-x: hidden;
+	margin: 0;
+	font-family: Arial, sans-serif;
 	text-align: center;
 	background-color: black;
-	
 	font-size: 24px;
-
 }
 
-#PageWrapper
-{	
-	 /* tekstin väri: valkoinen, taustakuva */
-	color: white; 
+#PageWrapper 
+{
+	/* tekstin väri: valkoinen, taustakuva */
+	width: 100%;
+	max-width: 100%;
+	overflow-x: hidden;
+	box-sizing: border-box;
+	color: white;
 	background-image: url(../IMG/Boxes.jpg);
 	background-size: contain;
-	background-attachment: fixed;  /* tausta ei liiku mukana, mutta dropdown ei liikuta taustaa avautuessaan */
-	
-    
+	background-attachment: fixed; /* tausta ei liiku mukana, mutta dropdown ei liikuta taustaa avautuessaan */
 }
 
 #Header
@@ -280,8 +281,8 @@ li a:hover
 	font-size: 2EM;
 }
 
-/* Keskiosan kuvat */
-.project_images 
+/* Muut kuvat */
+.other_image
 {
 	background-position: center;
 	height: auto;
@@ -315,11 +316,14 @@ li a:hover
 		display: block;
 	}
 
-	.video  /* Embed videolle oma elementti.  otetaan paddingillä irti reunoista */
+	.video /* Embed videolle oma elementti.  otetaan paddingillä irti reunoista */ 
 	{
 		width: 90%;
-		margin: 10%; 
-		
+		max-width: 600px;
+		height: auto;
+		aspect-ratio: 16 / 9; /* tai säilytä haluamasi korkeus */
+		margin: 16px auto; /* keskitetään ja estetään 110% leveys */
+		display: block;
 	}
 	
 	
@@ -404,10 +408,6 @@ li a:hover
 	width: 50%;
 	}
 	
-
-	.title { display: none } /* "Showcase of projects" teksti piiloon */
-    .bolds { display: none } /* "Showcase of projects" teksti piiloon */
-
 	#BottomLinks { display: none; }
 
 } /* Mobiili lopetus sulku */
