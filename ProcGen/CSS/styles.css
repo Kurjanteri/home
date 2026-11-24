@@ -73,14 +73,12 @@ html, body
 
 #ImageOne
 {		
-	background-image: url(../IMG/Croco.png); /* Asettaa kuvan, hakee sen kohteesta: */
+	background-image: url(../IMG/croco.png); /* Asettaa kuvan, hakee sen kohteesta: */
 	background-position: Center;  /* Kuva tulee keskelle */
 	background-size: 300px 300px; /* Kuvan mittasuhteet leveys, korkeus */
 	background-repeat: no-repeat; /* Kuva ei toistu */
 	height: 200px; 
-	width: 100%; /* Kuvalle annetun ns. laatikon leveys */
-	 
-    
+	width: 100%; /* Kuvalle annetun ns. laatikon leveys */	   
 }
 
 #ImageTwo
