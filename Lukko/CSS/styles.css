@@ -73,11 +73,11 @@ html, body
 
 #ImageOne
 {		
-	background-image: url(../IMG/.png); /* Asettaa kuvan, hakee sen kohteesta: */
+	background-image: url(../IMG/Lukko.png); /* Asettaa kuvan, hakee sen kohteesta: */
 	background-position: Center;  /* Kuva tulee keskelle */
 	background-size: 300px 300px; /* Kuvan mittasuhteet leveys, korkeus */
 	background-repeat: no-repeat; /* Kuva ei toistu */
-	height: 200px; 
+	height: 300px; 
 	width: 100%; /* Kuvalle annetun ns. laatikon leveys */
 	 
     
@@ -85,11 +85,11 @@ html, body
 
 #ImageTwo
 {
-	background-image: url(../IMG/.png);
+	background-image: url(../IMG/LukkoMenu.png);
 	background-position: Center;
 	background-size: 300px 300px; 	
 	background-repeat: no-repeat;
-	height: 200px; 
+	height: 300px; 
 	
 	
 }

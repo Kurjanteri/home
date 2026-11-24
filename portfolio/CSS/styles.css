@@ -1,6 +1,5 @@
 html, body
 {	
-
 	width: 100%;
     margin: 0;
 	
@@ -9,12 +8,8 @@ html, body
 	background-color: black;
 	
 	font-size: 24px;
-	
-	
+
 }
-
-
-
 
 #PageWrapper
 {	
@@ -22,19 +17,51 @@ html, body
 	color: white; 
 	background-image: url(../IMG/Boxes.jpg);
 	background-size: contain;
-	 background-attachment: fixed;  /* tausta ei liiku mukana, mutta dropdown ei liikuta taustaa avautuessaan */
+	background-attachment: fixed;  /* tausta ei liiku mukana, mutta dropdown ei liikuta taustaa avautuessaan */
 	
     
 }
 
-
 #Header
 {	
-	
 	padding-left: 30px;
 	padding-top: 5px;
 }
- 
+
+.fa,
+.material-icons 
+{
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: 64px;
+	height: 64px;
+	padding: 0;
+	font-size: 30px;
+	line-height: 1 !important;
+	text-decoration: none;
+	margin: 5px 2px;
+	border-radius: 50%;
+	box-sizing: border-box;
+}
+
+.fa:hover,
+.material-icons:hover 
+{
+	opacity: 0.7;
+}
+
+.fa-linkedin 
+{
+	background: #007bb5;
+	color: white;
+}
+
+.material-icons-email 
+{
+	background: grey;
+	color: white;
+}
 
 section 
 {
@@ -109,7 +136,7 @@ li a:hover
 	  text-shadow: 2px 2px black;
 	  display: block;
 	  padding: 16px;
-	  
+	  text-decoration: none;
 	  background-color: black;
 	  cursor: pointer;
 	  font-size: 20px;
@@ -190,8 +217,7 @@ li a:hover
 #middle
 {
 	font-size: 1REM; /* Tekstien fontti */
-	
-	
+		
 }
 
  /* Ostikko fontti */
@@ -203,41 +229,72 @@ li a:hover
 	
 }
 
-/* Keskiosan kuvat */
-.project_images
+.project-card 
 {
-	
-	background-position: center;
-	height:  auto;
-	width: 20vw; /*  28vw = 537.6px */ 
-	min-width: 45%;
+	max-width: 500px;
+	margin: 24px auto;
+	padding: 16px;
+	background-color: rgba(0, 0, 0, 0.75);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+	border-radius: 8px;
 }
 
-/* Tekstilinkkien väri ja muotoilu pois */
-.txtL
+.project-link 
+{
+	display: inline-block;
+	overflow: hidden;
+	border-radius: 6px;
+}
+
+.project-thumb 
+{
+	display: block;
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.project-link:hover .project-thumb {
+	transform: scale(1.04);
+	opacity: 0.85;
+}
+
+.project-meta {
+	margin-top: 12px;
+	text-align: left;
+	font-size: 0.9rem;
+	line-height: 1.4;
+}
+
+.project-meta a 
 {
 	color: #42AB71;
-	text-decoration: none;
 }
 
+
+/* Ostikko fontti */
+.bolds {
+	font-weight: bold;
+	color: white;
+	font-size: 2EM;
+}
+
+/* Keskiosan kuvat */
+.project_images 
+{
+	background-position: center;
+	height: auto;
+	width: 20vw; /*  28vw = 537.6px */
+	min-width: 45%;
+}
 
 
 .mobilevideo { display: none; }
 
-/* Piilotetaan mobiiliversion linkit pc sivulta */
-#MobileLinks { display: none; }
-
-
 /* Piilotetaan mobiili näkymän valikko */
 #Mobile { display: none; }
 
-
-/* Tabletti koossa nimen väriä vaihdetaan */
-@media screen and (min-width: 751px) and (max-width: 950px) 
-{
-	#Header { color: #42AB71; }
-
-}
 
 @media screen and (min-width: 250px) and (max-width: 750px)
 {
@@ -286,7 +343,6 @@ li a:hover
 	  
 	}
  
- 
 	/* valikon sisältö */	
 	.dropdown-content a 
 	{ 
@@ -299,9 +355,7 @@ li a:hover
 	  background-color: black; /* dropdown menulle annetun alueen taustaväri */ 
  	  
 	}
-	
-	
-	
+
 	.dropdown 
 	{
 	  
@@ -350,23 +404,11 @@ li a:hover
 	width: 50%;
 	}
 	
-	
-	.video { display: none; }
-	
-	.mobilevideo 
-	{
-		display: block;
-		width: 80vw;
-		height: 50vh;
-		margin: auto;
-	}
-	
+
 	.title { display: none } /* "Showcase of projects" teksti piiloon */
     .bolds { display: none } /* "Showcase of projects" teksti piiloon */
 
-	#MobileLinks { display: block; }
-	
-	#PCLinks { display: none; }
+	#BottomLinks { display: none; }
 
 } /* Mobiili lopetus sulku */
 

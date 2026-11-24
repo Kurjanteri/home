@@ -94,14 +94,13 @@ html, body
 	
 }
 
-#ImageThree
+#ImageThree 
 {
-	background-image: url(../IMG/croco.png);
+	background-image: url(../IMG/water.png);
 	background-position: Center;
-	background-size: 400px 400px; 
+	background-size: 400px 400px;
 	background-repeat: no-repeat;
-	height: 200px; 
-	
+	height: 200px;
 }
 
 #Article
@@ -112,11 +111,9 @@ html, body
 }
 
 
-
-
 #ImageFour
 {		
-	background-image: url(../IMG/water.png);
+	background-image: url(../IMG/);
 	background-position: Center;
 	background-size: 400px 400px; 
 	background-repeat: no-repeat;
@@ -219,7 +216,7 @@ width: 100%;
 
 
 #ImageFour { height: 50px; } /* Pienennet��n ensimm�ist� portaalikuvaa hieman, ett� saadaan tyhj�� tilaa pois */
-*/
+
 
 
 

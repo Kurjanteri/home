@@ -8,119 +8,207 @@
     </head>
     <body>
         <div id = "PageWrapper"> <!-- Kaikki elementit tulee PageWrapperin sisälle -->
-			<div id = "ContentWrapper"> <!-- Mahdollisia flex box säätöjä varten -->
-				
-					<div id = "Header" title = "banner_image" > <!-- Tänne nimi ja ehkä banner kuva -->
+			<div id="ContentWrapper">
+				<!-- Mahdollisia flex box säätöjä varten -->
+
+				<div id="Header" title="banner_image">
+					<!-- Tänne nimi ja ehkä banner kuva -->
 					<h1> Mikko Nurminen </h1>
- 				    <p> Game developer, amateur IT support, videogame enjoyer and music collector </p>
-					</div>
-					
-						
-												
-								
-					<ul> 		<!-- navigaatio palkki -->
-													
-						<li> <a href="/home/portfolio/PDF/CV.html" title = "Resume_Page" alt = "Resume_Page"> Resume Page</a> </li>
-							
-								<!-- Dropdown valikko -->
-							<li class="dropdown">
-								  <a class="projects"> Projects ☰ </a> 
-									<div class="dropdown-content">
-										<a href="/home/2D/" title = "Ros Viridis" alt = "2D-Tasohyppely">2D-Tasohyppely / Ros Viridis</a>
- 									    <a href="/home/Hotelli/" title = "Hotelli" alt = "Hotelli">Hotelli</a>
-  									    <a href="/home/Lukko/" title = "Lukko" alt = "Lukko">Lukko</a>
-   									   <a href="/home/Sekalaiset/" title = "Sekalaiset" alt = "Sekalaiset">Sekalaiset</a>
-										<a href="/home/tehtava6/" title = "LowPolyProject" alt = "LowPolyProject">Tehtävä 6 / Low Poly rocks and trees</a>
- 									<a href="/home/Valvontakamera/" title = "Valvontakamera" alt = "Valvontakamera"> Valvontakamera </a>										
-										
-									</div>
-							</li>	
-					</ul>
-							
-							<!-- Mobiilisivun valikot  -->
-						<div id = "Mobile">
-							
-							<div class="dropdown">
- 						    
-								<div class="dropdown-content" id="myDropDown" >
-								 <a href="/home/2D/" title = "Ros Viridis" alt = "2D-Tasohyppely">2D-Tasohyppely / Ros Viridis</a>
- 									<a href="/home/Hotelli/" title = "Hotelli" alt = "Hotelli">Hotelli</a>
-  									<a href="/home/Lukko/" title = "Lukko" alt = "Lukko">Lukko</a>
-   									<a href="/home/Sekalaiset/" title = "Sekalaiset" alt = "Sekalaiset">Sekalaiset</a>
-									<a href="/home/tehtava6/" title = "LowPolyProject" alt = "LowPolyProject">Tehtävä 6 / Low Poly rocks and trees</a>
- 									<a href="/home/Valvontakamera/" title = "Valvontakamera" alt = "Valvontakamera"> Valvontakamera </a>								  
-								  <a href="/home/portfolio/PDF/CV.html" title = "Resume_Page" alt = "Resume_Page"> Resume Page</a>
-								 
-								</div>
-								 <!-- Saadaan nappi alimmaiseksi. -->
- 							    <a class="dropbtn" id="myButton" onclick="myFunction2()"> ☰ </> </a>
-							</div>
-						</div>
-						      
- 						       
-  						      
-							<!-- Javascriptiä tekstipainikkeille. paina nappia niin elementti tulee näkyviin. -->	
-							<script>
-							function myFunction2() {
-								 var x = document.getElementById("myDropDown");
- 								  var y = document.getElementById("myButton");
-   							    
-								  if (x.style.display === "block") {
-									x.style.display = "none";
- 								    y.style.backgroundColor = "";
- 								     
-								  } else {
-									x.style.display = "block";
- 								    y.style.backgroundColor = "#42AB71";
-								  }
-								}
-							
-								
-							</script>
-							
-						<div id = "middle">
-							<p class="bolds" id="showcase"  > Showcase of projects </p> <!-- ÄLÄ LAITA SULKUA <p perään. -->
-							<!-- Video embed. Erillinen class elementti "video" jolla määritetään videon kokoa.  -->
-							<iframe class = "video" src = "https://www.youtube.com/embed/d5SW9z42jB4" frameborder = "0" allowfullscreen> </iframe> <!-- videolaatikko -->
-								
-							 
-								
-								<!-- Teksti linkit -->
-								<div id ="MobileLinks">
-									<h1>  <a  class = "txtL" href = "https://www.linkedin.com/in/mikko-nurminen-57266b253/"> LINKEDIN // </a> 
-									      <a class = "txtL" href = "mailto: bumdle12345@gmail.com"> EMAIL </a>
-										  
-									</h1>
-								</div>
-
-						
-							 	<p class = "bolds" > Some images: </p>
-								<p> Binary space partitioning level, Resources, Enemies and path found by A-star/A* </p>
-								
-								<!-- Kuvat ja alt teksti -->
-								<img class = "project_images" src = "/home/portfolio/IMG/PathFind.png" title = "Path_Find" alt = "Path_Find_img"> 
-								<br>
-								<p> 3D-modeled worm humanoid character surrounded by plants, trees and procedural grass </p>
-								<img class = "project_images" src = "/home/portfolio/IMG/worm.png" title = "worm" alt = "worm_img">
-								<p> Raccoon villain character drawn in Krita </p>
-								<img class = "project_images" src = "/home/portfolio/IMG/Raccoon.png" title = "Raccoon" alt = "Raccoon_img">
-
-								<!-- Sijoitetaan video mobiilisivulla alas. piilotettiin toinen video -->
-							<iframe  class ="mobilevideo" src = "https://www.youtube.com/embed/d5SW9z42jB4" frameborder = "0" allowfullscreen> </iframe> <!-- videolaatikko -->
-
-								<p> Salamander humanoid gif </p>	
-								<img class = "project_images" src = "/home/portfolio/IMG/Salamander.gif" title = "salamander_gif" alt = "salamander_gif">
-									
-													</div>
-								
-								<!-- Teksti linkit -->
-							<div id = "PCLinks">
-								<h1>  <a  class = "txtL" href = "https://www.linkedin.com/in/mikko-nurminen-57266b253/"> LINKEDIN // </a> 
-								<a class = "txtL" href = "mailto: bumdle12345@gmail.com"> EMAIL </a>
-								</h1>
-								<br>
-							</div>
+					<p> Game developer, amateur IT support, videogame enjoyer and music collector </p>
 				</div>
+
+				<!-- FA ikoni kirjasto -->
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+				<!-- Google ikoni kirjasto -->
+				<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+				<div id="ContactLinks">
+					<a href="https://www.linkedin.com/in/mikko-nurminen-57266b253/" class="fa fa-linkedin" title="LinkedIn" alt="LinkedIn"></a>
+					<a href="mailto:bumdle12345@gmail.com" class="material-icons material-icons-email" title="email" alt="email">mail</a>
+				</div>
+
+				<ul>
+					<!-- navigaatio palkki -->
+
+					<li> <a href="/home/portfolio/PDF/CV.html" title="Resume_Page" alt="Resume_Page"> Resume Page</a> </li>
+
+					<!-- Dropdown valikko -->
+					<li class="dropdown">
+						<a class="projects"> Menu </a>
+						<div class="dropdown-content">
+							<a href="/home/ProcGen/" title="Unnamed ProcGen project" alt="ProcGen"> ProcGen </a>
+							<a href="/home/Lukko/" title="Lukko" alt="Lukko">Lukko</a>
+							<a href="/home/Hotelli/" title="Hotelli" alt="Hotelli">Hotelli</a>
+							<a href="/home/Sekalaiset/" title="Sekalaiset" alt="Sekalaiset">Level/sound design project, maze, flail testing</a>
+							<a href="/home/tehtava6/" title="LowPolyProject" alt="LowPolyProject">Low Poly rocks and trees</a>
+							<a href="/home/2D/" title="Ros Viridis" alt="2D-Tasohyppely">Ros Viridis</a>
+
+						</div>
+					</li>
+				</ul>
+
+				<!-- Mobiilisivun valikot  -->
+				<div id="Mobile">
+
+					<div class="dropdown">
+
+						<div class="dropdown-content" id="myDropDown">
+							<a href="/home/ProcGen/" title="Unnamed ProcGen project" alt="ProcGen"> ProcGen </a>
+							<a href="/home/Lukko/" title="Lukko" alt="Lukko">Lukko</a>
+							<a href="/home/Hotelli/" title="Hotelli" alt="Hotelli">Hotelli</a>
+							<a href="/home/Sekalaiset/" title="Sekalaiset" alt="Sekalaiset">Level/sound design project, maze, flail testing</a>
+							<a href="/home/tehtava6/" title="LowPolyProject" alt="LowPolyProject">Low Poly rocks and trees</a>
+							<a href="/home/2D/" title="Ros Viridis" alt="2D-Tasohyppely">Ros Viridis</a>
+							<a href="/home/portfolio/PDF/CV.html" title="Resume_Page" alt="Resume_Page"> Resume Page</a>
+
+						</div>
+						<!-- Saadaan nappi alimmaiseksi. -->
+						<a class="dropbtn" id="myButton" onclick="myFunction2()"> ☰ </> </a>
+					</div>
+				</div>
+
+
+
+				<!-- Javascriptiä tekstipainikkeille. paina nappia niin elementti tulee näkyviin. -->
+				<script>
+					function myFunction2() {
+						var x = document.getElementById("myDropDown");
+						var y = document.getElementById("myButton");
+
+						if (x.style.display === "block") {
+							x.style.display = "none";
+							y.style.backgroundColor = "";
+
+						} else {
+							x.style.display = "block";
+							y.style.backgroundColor = "#42AB71";
+						}
+					}
+
+
+				</script>
+
+				<div id="middle">
+
+					<!-- Showcase of Projects VIDEO -->
+					<p class="bolds" id="showcase"> Showcase of projects </p>
+					<!-- Video embed. Erillinen class elementti "video" jolla määritetään videon kokoa.  -->
+					<iframe class="video" src="https://www.youtube.com/embed/d5SW9z42jB4" frameborder="0" allowfullscreen> </iframe> <!-- videolaatikko -->
+					
+					<!-- PROJECTS -->
+					<p class="bolds"> PROJECTS </p>
+
+					<div class="project-card">
+						<h3> Unnamed ProcGen project</h3>
+						<a href="/home/ProcGen/" class="project-link" title="ProcGen">
+							<img src="ProcGen/IMG/croco.png" alt="ProcGen" class="project-thumb">
+						</a>
+						<div class="project-meta">
+							<p><strong>Link:</strong> <a href="/home/ProcGen/">Project page link</a></p>
+							<p><strong>Role:</strong> Solo project</p>
+							<p><strong>Summary:</strong> Roguelike with emphasis on procedurally generated elements.</p>
+							<p><strong>Platforms:</strong> PC</p>
+							<p><strong>Engine and tools:</strong> Unity, 3ds Max, Blender, Krita, Reaper</p>
+						</div>
+					</div>
+
+					<div class="project-card">
+						<h3>Lukko</h3>
+						<a href="/home/Lukko/" class="project-link" title="Lukko">
+							<img src="Lukko/IMG/Lukko.png" alt="Lukko" class="project-thumb">
+						</a>
+						<div class="project-meta">
+							<p><strong>Link:</strong> <a href="/home/Lukko/">Project page link</a></p>
+							<p><strong>Role:</strong> Solo project</p>
+							<p><strong>Summary:</strong> Lockpicking game with extra steps.</p>
+							<p><strong>Platforms:</strong> PC</p>
+							<p><strong>Engine and tools:</strong> Unity, 3ds Max, Reaper</p>
+						</div>
+					</div>
+
+					<div class="project-card">
+						<h3>Hotelli</h3>
+						<a href="/home/Hotelli/" class="project-link" title="Hotelli">
+							<img src="Hotelli/IMG/HotelliKerros.png" alt="Hotelli" class="project-thumb">
+						</a>
+						<div class="project-meta">
+							<p><strong>Link:</strong> <a href="/home/Hotelli/">Project page link</a></p>
+							<p><strong>Role:</strong> Solo project</p>
+							<p><strong>Summary:</strong> First person game where you deliver towels to customers as fast as possible while keeping the towels clean.</p>
+							<p><strong>Platforms:</strong> PC</p>
+							<p><strong>Engine and tools:</strong> Unity, 3ds Max, jsfxr</p>
+						</div>
+					</div>
+
+					<div class="project-card">
+						<h3>Level/sound design project, maze, flail testing</h3>
+						<a href="/home/Sekalaiset/" class="project-link" title="Sekalaiset">
+							<img src="Sekalaiset/IMG/Pool.png" alt="Pool" class="project-thumb">
+						</a>
+						<div class="project-meta">
+							<p><strong>Link:</strong> <a href="/home/Sekalaiset/">Project page link</a></p>
+							<p><strong>Role:</strong> Solo project</p>
+							<p><strong>Summary:</strong> Level and sound design project, maze generation and a flail test</p>
+							<p><strong>Platforms:</strong> PC</p>
+							<p><strong>Engine and tools:</strong> Unity, 3ds Max, Reaper</p>
+						</div>
+					</div>
+
+					<div class="project-card">
+						<h3>Low Poly rocks and trees</h3>
+						<a href="/home/tehtava6/" class="project-link" title="tehtava6">
+							<img src="tehtava6/IMG/kuva1.png" alt="tehtava6" class="project-thumb">
+						</a>
+						<div class="project-meta">
+							<p><strong>Link:</strong> <a href="/home/tehtava6/">Project page link</a></p>
+							<p><strong>Role:</strong> Solo project</p>
+							<p><strong>Summary:</strong> Course project. Low poly enviroment with rocks and trees</p>
+							<p><strong>Platforms:</strong> PC</p>
+							<p><strong>Engine and tools:</strong> Unity, 3ds Max</p>
+						</div>
+					</div>
+
+					<div class="project-card">
+						<h3>Ros Viridis</h3>
+						<a href="/home/2D/" class="project-link" title="Ros Viridis">
+							<img src="2D/IMG/character.png" alt="Ros Viridis" class="project-thumb">
+						</a>
+						<div class="project-meta">
+							<p><strong>Link:</strong> <a href="/home/2D/">Project page link</a></p>
+							<p><strong>Role:</strong> Solo project</p>
+							<p><strong>Summary:</strong> My very first project. 2D platformer</p>
+							<p><strong>Platforms:</strong> PC</p>
+							<p><strong>Engine and tools:</strong> Unity, Krita, jsfxr</p>
+						</div>
+					</div>
+
+
+
+					<!-- JOTAIN PROJEKTI KUVIA-->
+					<p class="bolds"> OTHER </p>
+
+					<p> Binary space partitioning level, Resources, Enemies and path found by A-star/A* </p>
+					<img class="project_images" src="/home/portfolio/IMG/PathFind.png" title="Path_Find" alt="Path_Find_img">
+
+					<p> 3D-modeled worm humanoid character surrounded by plants, trees and procedural grass </p>
+					<img class="project_images" src="/home/portfolio/IMG/worm.png" title="worm" alt="worm_img">
+
+					<p> Raccoon villain character drawn in Krita </p>
+					<img class="project_images" src="/home/portfolio/IMG/Raccoon.png" title="Raccoon" alt="Raccoon_img">
+
+					<p> Salamander humanoid gif </p>
+					<img class="project_images" src="/home/portfolio/IMG/Salamander.gif" title="salamander_gif" alt="salamander_gif">
+
+				</div>
+
+				<!-- Teksti linkit -->
+				<div id="BottomLinks">	
+					<br>
+						<a href="https://www.linkedin.com/in/mikko-nurminen-57266b253/" class="fa fa-linkedin" title="LinkedIn" alt="LinkedIn"></a>
+						<a href="mailto:bumdle12345@gmail.com" class="material-icons material-icons-email" title="email" alt="email">mail</a>									
+				</div>
+			</div>
 			</div>
 		
 	</body>
