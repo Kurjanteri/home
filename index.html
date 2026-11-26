@@ -273,9 +273,9 @@
 						}
 
 						// Väritys: tumma tausta ja vihertävä hehku (sopii #42AB71-teemaan)
-						float t = clamp(0.25 + minDist * 0.65, 0.0, 1.0);
+						float t = clamp(0.35 + minDist * 0.55, 0.0, 1.0);
 						vec3 color = mix(vec3(0.03, 0.08, 0.06), vec3(0.26, 0.67, 0.44), t);
-						gl_FragColor = vec4(color * 0.45, 1.0);
+						gl_FragColor = vec4(color * 0.35, 1.0);
 					}
 				`;
 
