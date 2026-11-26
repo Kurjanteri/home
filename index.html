@@ -272,8 +272,9 @@
 							}
 						}
 
-						// Väritys: tumma tausta ja vihertävä hehku (sopii #42AB71-teemaasi)
-						vec3 color = mix(vec3(0.03, 0.08, 0.06), vec3(0.26, 0.67, 0.44), pow(minDist, 2.2));
+						// Väritys: tumma tausta ja vihertävä hehku (sopii #42AB71-teemaan)
+						float cellGlow = 1.0 - smoothstep(0.0, 1.1, minDist);
+						vec3 color = mix(vec3(0.02, 0.05, 0.04), vec3(0.26, 0.67, 0.44), pow(cellGlow, 1.5));
 						gl_FragColor = vec4(color * 0.45, 1.0);
 					}
 				`;
