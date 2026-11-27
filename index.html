@@ -274,6 +274,11 @@
 							vec2 diff = neighbor + point - f;
 							minDist = min(minDist, length(diff));
 						}
+
+						// Väritys: tumma tausta ja vihertävä hehku (sopii #42AB71-teemaan)
+						float t = clamp(0.35 + minDist * 0.55, 0.0, 1.0);
+						vec3 color = mix(vec3(0.03, 0.08, 0.06), vec3(0.26, 0.67, 0.44), t);
+						gl_FragColor = vec4(color * 0.35, 1.0);
 					}
 
 					// Sub-graafi: Voronoi -> Power (Contrast) -> Multiply (Intensity) -> Clamp (0..1)
