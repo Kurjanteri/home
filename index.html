@@ -218,6 +218,7 @@
 			const gl = canvas.getContext("webgl");
 
 			function resize() {
+				if (!gl) return;
 				canvas.width = window.innerWidth;
 				canvas.height = window.innerHeight;
 				gl.viewport(0, 0, canvas.width, canvas.height);
@@ -226,57 +227,74 @@
 			resize();
 
 			const vsSource = `
-					attribute vec2 position;
-					void main() {
-						gl_Position = vec4(position, 0.0, 1.0);
-					}
-				`;
+				attribute vec2 position;
+				void main() {
+					gl_Position = vec4(position, 0.0, 1.0);
+				}
+			`;
 
-			// Fragment shader: laskee animoidun Voronoi-kohinan
 			const fsSource = `
-
-					#ifdef GL_FRAGMENT_PRECISION_HIGH
+				#ifdef GL_FRAGMENT_PRECISION_HIGH
 					precision highp float;
 				#else
 					precision mediump float;
 				#endif
 
-					uniform vec2 u_resolution;
-					uniform float u_time;
+				uniform vec2 u_resolution;
+				uniform float u_time;
 
-					vec2 hash2(vec2 p) {
+				vec2 hash2(vec2 p) {
 					vec3 p3 = fract(vec3(p.xyx) * vec3(0.1031, 0.1030, 0.0973));
 					p3 += dot(p3, p3.yxz + 33.33);
 					return fract((p3.xx + p3.yz) * p3.zy);
-					}
+				}
 
-					void main() {
-						vec2 uv = gl_FragCoord.xy / u_resolution.xy;
-						uv.x *= u_resolution.x / u_resolution.y;
-						uv *= 3.0; // SOLUJEN KOKO / TIHEYS. PIENEMPI LUKU = SUUREMMAT SOLUT
+				// Kevyt pikselikohtainen dither 8-bittisen SDR-liukuvärin tasoittamiseen
+				float dither(vec2 coord) {
+					vec2 p = fract(coord * vec2(443.897, 441.423));
+					p += dot(p, p.yx + 19.19);
+					return fract((p.x + p.y) * p.x) - 0.5;
+				}
 
-						vec2 n = floor(uv);
-						vec2 f = fract(uv);
+				void main() {
+					vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+					uv.x *= u_resolution.x / u_resolution.y;
+					uv *= 3.0; // Solujen koko / tiheys
 
-						float minDist = 8.0;
+					vec2 n = floor(uv);
+					vec2 f = fract(uv);
 
-						for (int j = -1; j <= 1; j++) {
-							for (int i = -1; i <= 1; i++) {
-								vec2 neighbor = vec2(float(i), float(j));
-								vec2 point = hash2(n + neighbor);
-								// Animoidaan solupisteitä ajan mukaan
-								point = 0.5 + 0.5 * sin(u_time * 0.6 + 6.2831 * point);
-								vec2 diff = neighbor + point - f;
-								float dist = length(diff);
-								minDist = min(minDist, dist);
-							}
+					float minDist = 8.0;
+
+					for (int j = -1; j <= 1; j++) {
+						for (int i = -1; i <= 1; i++) {
+							vec2 neighbor = vec2(float(i), float(j));
+							vec2 point = hash2(n + neighbor);
+							point = 0.5 + 0.5 * sin(u_time * 0.6 + 6.2831 * point);
+							vec2 diff = neighbor + point - f;
+							minDist = min(minDist, length(diff));
 						}
-
-						// Väritys: tumma tausta ja vihertävä hehku (sopii #42AB71-teemaasi)
-						vec3 color = mix(vec3(0.03, 0.08, 0.06), vec3(0.26, 0.67, 0.44), pow(minDist, 2.2));
-						gl_FragColor = vec4(color * 0.45, 1.0);
 					}
-				`;
+
+					// Sub-graafi: Voronoi -> Power (Contrast) -> Multiply (Intensity) -> Clamp (0..1)
+					float contrast = 3.0;
+					float intensity = 0.55;
+
+					float baseCell = clamp(minDist, 0.0, 1.0);
+					float powered = pow(max(baseCell, 0.0001), contrast);
+					float mask = clamp(powered * intensity, 0.0, 1.0);
+
+					vec3 darkBg = vec3(0.02, 0.05, 0.04);
+					vec3 accent = vec3(0.26, 0.67, 0.44);
+					vec3 color = mix(darkBg, accent, mask);
+
+					// Lisätään pieni dither (~1/255 tasolla) ennen lopullista väriä
+					color += dither(gl_FragCoord.xy) / 255.0;
+					color = clamp(color, 0.0, 1.0);
+
+					gl_FragColor = vec4(color, 1.0);
+				}
+			`;
 
 			function createShader(type, source) {
 				const shader = gl.createShader(type);
@@ -285,30 +303,32 @@
 				return shader;
 			}
 
-			const program = gl.createProgram();
-			gl.attachShader(program, createShader(gl.VERTEX_SHADER, vsSource));
-			gl.attachShader(program, createShader(gl.FRAGMENT_SHADER, fsSource));
-			gl.linkProgram(program);
-			gl.useProgram(program);
+			if (gl) {
+				const program = gl.createProgram();
+				gl.attachShader(program, createShader(gl.VERTEX_SHADER, vsSource));
+				gl.attachShader(program, createShader(gl.FRAGMENT_SHADER, fsSource));
+				gl.linkProgram(program);
+				gl.useProgram(program);
 
-			const buffer = gl.createBuffer();
-			gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-			gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+				const buffer = gl.createBuffer();
+				gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+				gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
 
-			const posLoc = gl.getAttribLocation(program, "position");
-			gl.enableVertexAttribArray(posLoc);
-			gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+				const posLoc = gl.getAttribLocation(program, "position");
+				gl.enableVertexAttribArray(posLoc);
+				gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
 
-			const resLoc = gl.getUniformLocation(program, "u_resolution");
-			const timeLoc = gl.getUniformLocation(program, "u_time");
+				const resLoc = gl.getUniformLocation(program, "u_resolution");
+				const timeLoc = gl.getUniformLocation(program, "u_time");
 
-			function render(time) {
-				gl.uniform2f(resLoc, canvas.width, canvas.height);
-				gl.uniform1f(timeLoc, time * 0.001);
-				gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+				function render(time) {
+					gl.uniform2f(resLoc, canvas.width, canvas.height);
+					gl.uniform1f(timeLoc, time * 0.001);
+					gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+					requestAnimationFrame(render);
+				}
 				requestAnimationFrame(render);
 			}
-			requestAnimationFrame(render);
 		</script>
 		
 	</body>
